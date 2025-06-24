@@ -4,7 +4,52 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
+* {
     scroll-behavior: smooth;
     font-family: 'Futura PT', sans-serif;
+}
+
+.react-calendar {
+    border: none !important;
+    font-family: inherit;
+}
+
+.react-calendar__navigation {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    background-color: #f6f6f6 !important;
+    padding: 12px 16px !important;
+}
+
+.react-calendar__navigation button {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.react-calendar abbr {
+    text-decoration: none !important;
+    border-bottom: none !important;
+    color: #252525;
+}
+
+.react-calendar__navigation__label {
+    background-color: white !important;
+    padding: 8px 14px !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    color: #25252580 !important;
+    flex: 1;
+}
+
+
+/* Optional: adjust arrow buttons */
+.react-calendar__navigation__arrow {
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    color: #25252580;
 }
