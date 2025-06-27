@@ -53,3 +53,161 @@
     font-size: 18px;
     color: #25252580;
 }
+
+/* calendar.css */
+.calendar-container {
+    padding: 20px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Header day format (e.g., SUN 29) */
+.fc-col-header-cell-cushion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: medium;
+    margin: 20px;
+    font-size: 12px;
+    line-height: 1.2;
+}
+
+.fc .fc-timegrid-slot {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* Optional: Increase event padding inside slots */
+.fc .fc-event {
+  padding: 6px 8px;
+  font-size: 13px;
+}
+
+/* Add a bit more space between day and date */
+.fc-col-header-cell-cushion>span:first-child {
+    color: #999;
+    font-size: 10px;
+}
+
+/* Toolbar customization */
+.fc .fc-toolbar {
+    background-color: #ffffff;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.fc .fc-toolbar-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.fc .fc-button {
+    background: #ffffff;
+    border: 0px solid #ddd;
+    color: #000000;
+    outline: none;
+    padding: 4px 16px;
+    margin: 0 4px;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.fc .fc-button:hover {
+    background: #DC262691;
+    border: 1px solid #ddd;
+    color: #ffffff;
+    padding: 4px 16px;
+    margin: 0 4px;
+    outline: none;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.fc .fc-button::after {
+    background: #DC262691;
+    border: 1px solid #ddd;
+    color: #ffffff;
+    padding: 4px 16px;
+    margin: 0 4px;
+    outline: none;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+/* Default style for all buttons */
+.fc .fc-button {
+  background: #ffffff;
+  border: 0px solid #ccc;
+  color: #333;
+  padding: 6px 12px;
+  font-size: 12px;
+  margin-right: 4px;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+/* When any button is active */
+.fc .fc-button.fc-button-active {
+  background-color: #e5e7eb; /* light gray by default */
+  color: #000;
+}
+
+/* When the "Week" button is active */
+/* Month Button Active */
+.fc .fc-dayGridMonth-button.fc-button-active {
+  background-color: #dc262691 !important; /* green */
+  color: white !important;
+  outline:'none'
+}
+
+/* Week Button Active */
+.fc .fc-timeGridWeek-button.fc-button-active {
+  background-color: #dc262691 !important; /* red */
+  color: white !important;
+  outline:'none'
+}
+
+/* Day Button Active */
+.fc .fc-timeGridDay-button.fc-button-active {
+  background-color: #dc262691 !important; /* blue */
+  color: white !important;
+  outline:'none'
+}
+
+
+
+.fc .fc-button.fc-button-active {
+    background-color: #DC262691;
+    color: white;
+    border-color: #DC262691;
+}
+
+/* Event styling */
+.fc-event {
+    background-color: #007bff;
+    border: none;
+    font-size: 12px;
+    padding: 2px 4px;
+}
+
+
+@layer utilities {
+    .scrollbar-thin::-webkit-scrollbar {
+        width: 5px;
+        height: 2px;
+    }
+
+    .scrollbar-thin::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 4px;
+    }
+
+    .scrollbar-thin::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+}

@@ -21,7 +21,7 @@ const data = [
 
 const MyBarChart = () => {
   return (
-    <ResponsiveContainer width="100%" height={300}>
+    <ResponsiveContainer width="100%" height={260}>
       <BarChart
         data={data}
         margin={{ top: 20, bottom: 5 }}
@@ -32,16 +32,16 @@ const MyBarChart = () => {
           tick={{ fill: '#25252580', fontSize: 14, fontWeight: 500 }}
         />
         <YAxis
-          ticks={[100, 200, 300, 400, 500]}
+          ticks={[0, 100, 200, 300, 400, 500]}
           domain={[0, 'dataMax']}
           tick={{ fill: '#25252580' }}
         />
         <Tooltip />
 
         {/* Stacked Bars with different colors */}
-        <Bar dataKey="TotalClients" stackId="a" barSize={50} fill="#441890" radius={[0,0,10,10]} />
-        <Bar dataKey="ActiveClients" stackId="a" barSize={50} fill="#8467B6" radius={0} />
-        <Bar dataKey="ProspectiveClients" stackId="a" barSize={50} fill="#C3B5DB" radius={[10, 10, 0, 0]} />
+        <Bar dataKey="TotalClients" stackId="a" barSize={35} fill="#441890" radius={[0,0,10,10]} />
+        <Bar dataKey="ActiveClients" stackId="a" barSize={35} fill="#8467B6" radius={0} />
+        <Bar dataKey="ProspectiveClients" stackId="a" barSize={35} fill="#C3B5DB" radius={[10, 10, 0, 0]} />
       </BarChart>
     </ResponsiveContainer>
   );

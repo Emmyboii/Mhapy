@@ -7,9 +7,9 @@ const Authentication = () => {
     return (
         <div>
             <Routes>
-                <Route path='/signup' element={<SignUp />} />
-                <Route path='/login' element={<Login />} />
-                <Route path='/verifyemail' element={<VerifyEmail />} />
+                <Route path='signup' element={<SignUp />} />
+                <Route path='login' element={<Login />} />
+                <Route path='verifyemail' element={<VerifyEmail />} />
             </Routes>
         </div>
     )

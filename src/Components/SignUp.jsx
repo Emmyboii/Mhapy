@@ -36,7 +36,7 @@ const SignUp = () => {
                     <img src={Logo} alt="" />
                     <h1 className='sp:text-[40px] text-[32px] font-medium text-[#252525]'>Welcome to Mhapy</h1>
                     <p className='text-[#25252580] text-[15px] mt-[-10px] font-normal'>Already have an account?
-                        <Link to='/login'>
+                        <Link to='/auth/login'>
                             <span className='text-[16px] ml-2 underline cursor-pointer text-[#4285F4]'>Log in</span>
                         </Link>
                     </p>
