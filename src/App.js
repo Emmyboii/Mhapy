@@ -12,6 +12,7 @@ import Profile from './Pages/Profile';
 import Message from './Pages/Message';
 import Pricing from './Pages/Pricing';
 import Calender from './Pages/Calender';
+import Notes from './Pages/Notes';
 
 function App() {
 
@@ -79,6 +80,7 @@ function App() {
               <Route path="/profile" element={<Profile />} />
               <Route path="/pricing" element={<Pricing />} />
               <Route path="/calender" element={<Calender />} />
+              <Route path="/notes" element={<Notes />} />
               <Route path="/clients/:id" element={<ClientInfo setOpenSidebar={setOpenSidebar} />} />
               <Route path="/auth/*" element={<Authentication />} />
               <Route path="/404" element={<NotFound />} />

@@ -3,10 +3,12 @@ import { IoMdCheckmark } from 'react-icons/io';
 import { useEffect, useState } from 'react';
 import { RiVisaLine } from "react-icons/ri";
 import { FaStripe } from 'react-icons/fa';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigationType } from 'react-router-dom';
 
 const PaymentMethod = ({ paymentPlan, paymentMethod, setPaymentMethod, continueClicked, setContinueClicked }) => {
     const location = useLocation();
+    const navigationType = useNavigationType();
+    const isReload = performance.getEntriesByType("navigation")[0]?.type === "reload";
 
     const [freq, setFreq] = useState('monthly')
     const [LgScreens, setLgScreens] = useState(window.innerWidth > 900)
@@ -22,9 +24,18 @@ const PaymentMethod = ({ paymentPlan, paymentMethod, setPaymentMethod, continueC
     }, [LgScreens])
 
     useEffect(() => {
+
+        if (!isReload && location.pathname === '/pricing' && navigationType === 'POP') {
+            setPaymentMethod(true)
+            localStorage.setItem('paymentMethod', JSON.stringify(false));
+            setContinueClicked(false)
+            window.scrollTo(0, 0)
+        }
+
         const handleBackspace = (e) => {
             if (e.key === 'Backspace' && continueClicked) {
                 setPaymentMethod(true)
+                localStorage.setItem('paymentMethod', JSON.stringify(false));
                 setContinueClicked(false)
                 window.scrollTo(0, 0)
             }

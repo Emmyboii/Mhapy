@@ -2,30 +2,36 @@ import { useEffect, useState } from "react";
 import { IoMdCheckmark } from "react-icons/io";
 import PaymentMethod from "../Components/PaymentMethod";
 import { useLocation } from "react-router-dom";
+import { useNavigationType } from "react-router-dom";
 
 const Pricing = () => {
 
     const location = useLocation();
+    const navigationType = useNavigationType();
+    const isReload = performance.getEntriesByType("navigation")[0]?.type === "reload";
 
     const [paymentPlan, setPaymentPlan] = useState(() => {
         return localStorage.getItem('paymentPlan') || 'basic'
     })
 
     const [paymentMethod, setPaymentMethod] = useState(() => {
-        return localStorage.getItem('paymentMethod') || false
+        const stored = localStorage.getItem('paymentMethod');
+        return stored ? JSON.parse(stored) : false;
     })
     const [continueClicked, setContinueClicked] = useState(false)
 
-    useEffect(() => {
-        setPaymentMethod(false)
-        // localStorage.setItem('paymentMethod', false);
-    }, [])
-
 
     useEffect(() => {
+
+        if (!isReload && location.pathname === '/pricing' && navigationType === 'POP') {
+            localStorage.setItem('paymentMethod', JSON.stringify(false));
+            setPaymentMethod(false)
+            window.scrollTo(0, 0)
+        }
+
         const handleBackspace = (e) => {
             if (e.key === 'Backspace' && location.pathname === '/pricing' && !continueClicked) {
-                localStorage.setItem('paymentMethod', false);
+                localStorage.setItem('paymentMethod', JSON.stringify(false));
                 setPaymentMethod(false)
                 window.scrollTo(0, 0)
             }
@@ -42,19 +48,19 @@ const Pricing = () => {
     const onClickContinue1 = () => {
         localStorage.setItem('paymentPlan', 'basic')
         setPaymentPlan('basic')
-        localStorage.setItem('paymentMethod', true)
+        localStorage.setItem('paymentMethod', JSON.stringify(true))
         setPaymentMethod(true)
     }
     const onClickContinue2 = () => {
         localStorage.setItem('paymentPlan', 'business')
         setPaymentPlan('business')
-        localStorage.setItem('paymentMethod', true)
+        localStorage.setItem('paymentMethod', JSON.stringify(true))
         setPaymentMethod(true)
     }
     const onClickContinue3 = () => {
         localStorage.setItem('paymentPlan', 'enterprise')
         setPaymentPlan('enterprise')
-        localStorage.setItem('paymentMethod', true)
+        localStorage.setItem('paymentMethod', JSON.stringify(true))
         setPaymentMethod(true)
     }
 
