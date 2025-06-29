@@ -65,7 +65,7 @@ const HealthProfile = ({ dashboardFrame, setDashboardFrame }) => {
                                     <p className="sm:text-[16px] text-[13px]">Total Client</p>
                                 </div>
                                 <div className="bg-[#ffffff4d] rounded-lg text-white p-2">
-                                    <BsThreeDots />
+                                    <BsThreeDots className='cursor-pointer' />
                                 </div>
                             </div>
                             <div className="flex gap-[9px] items-center">
@@ -85,7 +85,7 @@ const HealthProfile = ({ dashboardFrame, setDashboardFrame }) => {
                                     <p className="sm:text-[16px] text-[13px]">Active Client</p>
                                 </div>
                                 <div className="bg-[#EBEBEB] rounded-lg text-[#292D32] p-2">
-                                    <BsThreeDots />
+                                    <BsThreeDots className='cursor-pointer' />
                                 </div>
                             </div>
                             <div className="flex gap-[9px] items-center">
@@ -105,7 +105,7 @@ const HealthProfile = ({ dashboardFrame, setDashboardFrame }) => {
                                     <p className="sm:text-[16px] text-[13px]">Inacive clients</p>
                                 </div>
                                 <div className="bg-[#EBEBEB] rounded-lg text-[#292D32] p-2">
-                                    <BsThreeDots />
+                                    <BsThreeDots className='cursor-pointer' />
                                 </div>
                             </div>
                             <div className="flex gap-[9px] items-center">

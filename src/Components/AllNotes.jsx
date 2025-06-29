@@ -1,6 +1,7 @@
 import { FiSearch } from 'react-icons/fi'
 import NoteEdit from '../Images/noteedit.svg';
 import { BsThreeDots } from 'react-icons/bs';
+
 const AllNotes = ({ setAddNotes }) => {
     return (
         <div className='flex flex-col gap-6'>
@@ -35,7 +36,7 @@ const AllNotes = ({ setAddNotes }) => {
                         <p className='sm:text-[13px] text-[10px] text-[#25252580] font-normal'>14/04/2025</p>
                         <div className='flex justify-between w-full items-center'>
                             <p className='sm:text-[20px] text-[14px] text-[#252525] font-[450]'>Amanda’s Note</p>
-                            <BsThreeDots />
+                            <BsThreeDots className='cursor-pointer' />
                         </div>
                     </div>
                     <hr className='border border-[#25252533]' />
@@ -54,7 +55,7 @@ const AllNotes = ({ setAddNotes }) => {
                         <p className='sm:text-[13px] text-[10px] text-[#25252580] font-normal'>14/04/2025</p>
                         <div className='flex justify-between w-full items-center'>
                             <p className='sm:text-[20px] text-[14px] text-[#252525] font-[450]'>Amanda’s Note</p>
-                            <BsThreeDots />
+                            <BsThreeDots className='cursor-pointer' />
                         </div>
                     </div>
                     <hr className='border border-[#25252533]' />
@@ -76,7 +77,7 @@ const AllNotes = ({ setAddNotes }) => {
                         <p className='sm:text-[13px] text-[10px] text-[#25252580] font-normal'>14/04/2025</p>
                         <div className='flex justify-between w-full items-center'>
                             <p className='sm:text-[20px] text-[14px] text-[#252525] font-[450]'>Amanda’s Note</p>
-                            <BsThreeDots />
+                            <BsThreeDots className='cursor-pointer' />
                         </div>
                     </div>
                     <hr className='border border-[#25252533]' />
@@ -94,7 +95,7 @@ const AllNotes = ({ setAddNotes }) => {
                         <p className='sm:text-[13px] text-[10px] text-[#25252580] font-normal'>14/04/2025</p>
                         <div className='flex justify-between w-full items-center'>
                             <p className='sm:text-[20px] text-[14px] text-[#252525] font-[450]'>Amanda’s Note</p>
-                            <BsThreeDots />
+                            <BsThreeDots className='cursor-pointer' />
                         </div>
                     </div>
                     <hr className='border border-[#25252533]' />
@@ -112,7 +113,7 @@ const AllNotes = ({ setAddNotes }) => {
                         <p className='sm:text-[13px] text-[10px] text-[#25252580] font-normal'>14/04/2025</p>
                         <div className='flex justify-between w-full items-center'>
                             <p className='sm:text-[20px] text-[14px] text-[#252525] font-[450]'>Amanda’s Note</p>
-                            <BsThreeDots />
+                            <BsThreeDots className='cursor-pointer' />
                         </div>
                     </div>
                     <hr className='border border-[#25252533]' />
@@ -130,7 +131,7 @@ const AllNotes = ({ setAddNotes }) => {
                         <p className='sm:text-[13px] text-[10px] text-[#25252580] font-normal'>14/04/2025</p>
                         <div className='flex justify-between w-full items-center'>
                             <p className='sm:text-[20px] text-[14px] text-[#252525] font-[450]'>Amanda’s Note</p>
-                            <BsThreeDots />
+                            <BsThreeDots className='cursor-pointer' />
                         </div>
                     </div>
                     <hr className='border border-[#25252533]' />
@@ -148,7 +149,7 @@ const AllNotes = ({ setAddNotes }) => {
                         <p className='sm:text-[13px] text-[10px] text-[#25252580] font-normal'>14/04/2025</p>
                         <div className='flex justify-between w-full items-center'>
                             <p className='sm:text-[20px] text-[14px] text-[#252525] font-[450]'>Amanda’s Note</p>
-                            <BsThreeDots />
+                            <BsThreeDots className='cursor-pointer' />
                         </div>
                     </div>
                     <hr className='border border-[#25252533]' />

@@ -2,13 +2,13 @@ import { FiSearch } from 'react-icons/fi'
 import NoteEdit from '../Images/noteedit.svg';
 import { BsThreeDots } from 'react-icons/bs';
 
-const RecentlyDeleted = ({ setAddNotes }) => {
+const Favourites = ({ setAddNotes }) => {
     return (
         <div className='flex flex-col gap-6'>
             <div className='flex sm:flex-row flex-col mq:gap-3 sm:gap-2 gap-1 sm:items-center justify-between'>
                 <div className='flex items-center gap-[10px]'>
-                    <p className='text-[24px] text-[#252525] font-[450]'>Recently Deleted</p>
-                    <p className='text-[16px] text-[#25252580] font-[450]'>7 Deleted Notes</p>
+                    <p className='text-[24px] text-[#252525] font-[450]'>Favorites</p>
+                    <p className='text-[16px] text-[#25252580] font-[450]'>8 Favorites</p>
                 </div>
                 <div className="relative flex items-center">
                     <input
@@ -16,7 +16,7 @@ const RecentlyDeleted = ({ setAddNotes }) => {
                         type="text"
                         name=""
                         id=""
-                        placeholder="Search Recently Deleted"
+                        placeholder="Search Favorites"
                     />
                     <FiSearch className="absolute right-5 text-[#94A2BC] size-5 font-bold" />
                 </div>
@@ -178,4 +178,4 @@ const RecentlyDeleted = ({ setAddNotes }) => {
     )
 }
 
-export default RecentlyDeleted
+export default Favourites

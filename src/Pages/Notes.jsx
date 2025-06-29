@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 // import Slider from "react-slick";
 // import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
@@ -8,12 +8,16 @@ import MiniNote from '../Components/MiniNote';
 import { useLocation } from 'react-router-dom';
 import { useNavigationType } from 'react-router-dom';
 import RecentlyDeleted from '../Components/RecentlyDeleted';
+import NoteCategory from '../Components/NoteCategory';
+import Favourites from '../Components/Favourites';
 
 const Notes = () => {
 
     const location = useLocation();
     const navigationType = useNavigationType();
-    const isReload = performance.getEntriesByType("navigation")[0]?.type === "reload";
+    const isReload = useMemo(() => {
+        return performance.getEntriesByType("navigation")[0]?.type === "reload";
+    }, []);
 
     const [noteFrame, setNoteFrame] = useState(() => {
         return localStorage.getItem('noteFrame') || 'note'
@@ -37,29 +41,35 @@ const Notes = () => {
     }, [notes]);
 
     useEffect(() => {
-
-        // Handle physical/browser back button (mobile and desktop)
-        if (!isReload && location.pathname === '/notes' && navigationType === 'POP') {
+        const resetNotes = () => {
             localStorage.setItem('allOrDeleted', '');
             setNotes('');
             window.scrollTo(0, 0);
+        };
+
+        const restoreNotes = () => {
+            localStorage.setItem('allOrDeleted', notes);
+            setNotes(notes);
+            window.scrollTo(0, 0);
+        };
+
+        // Browser/mobile back button
+        if (!isReload && location.pathname === '/notes' && navigationType === 'POP') {
+            if (notes === '' || !addNotes) resetNotes();
+            else if (notes === 'all' || notes === 'deleted') restoreNotes();
         }
 
-        // Handle Backspace key manually (desktop)
+        // Desktop backspace key
         const handleBackspace = (e) => {
             if (e.key === 'Backspace' && location.pathname === '/notes') {
-                localStorage.setItem('allOrDeleted', '');
-                setNotes('');
-                window.scrollTo(0, 0);
+                if (notes === '' || !addNotes) resetNotes();
+                else if (notes === 'all' || notes === 'deleted') restoreNotes();
             }
         };
 
         window.addEventListener('keydown', handleBackspace);
-
-        return () => {
-            window.removeEventListener('keydown', handleBackspace);
-        };
-    }, [location, navigationType]);
+        return () => window.removeEventListener('keydown', handleBackspace);
+    }, [location, navigationType, isReload, notes, setNotes, addNotes]);
 
     // const setttings = {
     //     dot: false,
@@ -79,7 +89,7 @@ const Notes = () => {
                         localStorage.setItem('noteFrame', 'note')
                         setNoteFrame('note')
                         setAddNotes(false)
-                        localStorage.setItem('addOrEditNote', false)
+                        localStorage.setItem('addOrEditNote', JSON.stringify(false))
                     }}
                 >
                     Notes
@@ -103,33 +113,40 @@ const Notes = () => {
                     Favorites
                 </p>
             </div>
-            <div>
-                {notes === 'all' ? (
-                    <>
-                        {addNotes ? (
-                            <EditOrAddNote setAddNotes={setAddNotes} />
-                        ) : (
-                            <AllNotes setAddNotes={setAddNotes} />
-                        )}
-                    </>
-                ) : notes === 'deleted' ? (
-                    <>
-                        {addNotes ? (
-                            <EditOrAddNote setAddNotes={setAddNotes} />
-                        ) : (
-                            <RecentlyDeleted setAddNotes={setAddNotes} />
-                        )}
-                    </>
-                ) : (
-                    <>
-                        {addNotes ? (
-                            <EditOrAddNote setAddNotes={setAddNotes} />
-                        ) : (
-                            <MiniNote setNotes={setNotes} setAddNotes={setAddNotes} />
-                        )}
-                    </>
-                )}
-            </div>
+            {noteFrame === 'note' ? (
+                <div>
+                    {notes === 'all' ? (
+                        <>
+                            {addNotes ? (
+                                <EditOrAddNote setNotes={setNotes} setAddNotes={setAddNotes} />
+                            ) : (
+                                <AllNotes setAddNotes={setAddNotes} />
+                            )}
+                        </>
+                    ) : notes === 'deleted' ? (
+                        <>
+                            {addNotes ? (
+                                <EditOrAddNote setNotes={setNotes} setAddNotes={setAddNotes} />
+                            ) : (
+                                <RecentlyDeleted setAddNotes={setAddNotes} />
+                            )}
+                        </>
+                    ) : (
+                        <>
+                            {addNotes ? (
+                                <EditOrAddNote setNotes={setNotes} setAddNotes={setAddNotes} />
+                            ) : (
+                                <MiniNote setNotes={setNotes} setAddNotes={setAddNotes} />
+                            )}
+                        </>
+                    )}
+                </div>
+            ) : noteFrame === 'category' ? (
+                <NoteCategory />
+            ) : (
+                <Favourites setAddNotes={setAddNotes} />
+
+            )}
         </div>
     )
 }

@@ -108,7 +108,7 @@ const Dashboard = ({ dashboardFrame, setDashboardFrame }) => {
                                         <p className="sm:text-[16px] text-[13px]">Total Client</p>
                                     </div>
                                     <div className="bg-[#ffffff4d] rounded-lg text-white sm:p-2 p-1">
-                                        <BsThreeDots />
+                                        <BsThreeDots className='cursor-pointer' />
                                     </div>
                                 </div>
                                 <div className="flex gap-[9px] items-center">
@@ -128,7 +128,7 @@ const Dashboard = ({ dashboardFrame, setDashboardFrame }) => {
                                         <p className="sm:text-[16px] text-[13px]">Active Client</p>
                                     </div>
                                     <div className="bg-[#EBEBEB] rounded-lg text-[#292D32] sm:p-2 p-1">
-                                        <BsThreeDots />
+                                        <BsThreeDots className='cursor-pointer' />
                                     </div>
                                 </div>
                                 <div className="flex gap-[9px] items-center">
@@ -148,7 +148,7 @@ const Dashboard = ({ dashboardFrame, setDashboardFrame }) => {
                                         <p className="sm:text-[16px] text-[13px]">Prospective clients</p>
                                     </div>
                                     <div className="bg-[#EBEBEB] rounded-lg text-[#292D32] sm:p-2 p-1">
-                                        <BsThreeDots />
+                                        <BsThreeDots className='cursor-pointer' />
                                     </div>
                                 </div>
                                 <div className="flex gap-[9px] items-center">
@@ -168,7 +168,7 @@ const Dashboard = ({ dashboardFrame, setDashboardFrame }) => {
                                         <p className="sm:text-[16px] text-[13px]">Sessions</p>
                                     </div>
                                     <div className="bg-[#EBEBEB] rounded-lg text-[#292D32] sm:p-2 p-1">
-                                        <BsThreeDots />
+                                        <BsThreeDots className='cursor-pointer' />
                                     </div>
                                 </div>
                                 <div className="flex gap-[9px] items-center">
@@ -228,7 +228,7 @@ const Dashboard = ({ dashboardFrame, setDashboardFrame }) => {
                             <div className="border border-[#25252533] py-5 px-[15px] w-full flex flex-col gap-8 rounded-md">
                                 <div className="flex items-center justify-between">
                                     <p className="text-[#252525] font-medium text-[20px]">Prospective Clients</p>
-                                    <BsThreeDots />
+                                    <BsThreeDots className='cursor-pointer' />
                                 </div>
                                 <div className="flex flex-col gap-6">
                                     <div className="flex gap-[14px] items-center">
@@ -287,7 +287,7 @@ const Dashboard = ({ dashboardFrame, setDashboardFrame }) => {
                             <div className="border border-[#25252533] py-5 px-[15px] w-full flex flex-col gap-5 rounded-md">
                                 <div className="flex items-center justify-between">
                                     <p className="text-[#252525] font-medium text-[20px]">Therapist’s schedule</p>
-                                    <BsThreeDots />
+                                    <BsThreeDots className='cursor-pointer' />
                                 </div>
                                 <div className="flex justify-between border border-[#00000033] rounded-md p-[18px]">
                                     <div className="text-[#252525] text-[16px] flex flex-col gap-[15px]">
@@ -346,7 +346,7 @@ const Dashboard = ({ dashboardFrame, setDashboardFrame }) => {
                                         <img src={appointment} className="size-[21px]" alt="" />
                                         <p>Appointment</p>
                                     </div>
-                                    <BsThreeDots />
+                                    <BsThreeDots className='cursor-pointer' />
                                 </div>
                                 <div className="flex flex-col gap-[18px]">
                                     <div className="flex gap-[14px] items-center">

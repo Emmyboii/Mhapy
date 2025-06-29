@@ -59,7 +59,7 @@ const ClientDashboard = ({ dashboardFrame }) => {
                             <div className='flex justify-between items-center w-full'>
                                 <p className='text-[#252525] text-[20px] font-medium'>All clients</p>
                                 <div className="text-[#25252580] cursor-pointer md:hidden block py-2 px-5">
-                                    <BsThreeDots />
+                                    <BsThreeDots className='cursor-pointer' />
                                 </div>
                             </div>
                             <div className='flex items-center w-full md:gap-4'>
@@ -69,7 +69,7 @@ const ClientDashboard = ({ dashboardFrame }) => {
                                         type="text"
                                         name=""
                                         id=""
-                                        placeholder="Search anything"
+                                        placeholder="Search client"
                                     />
                                     <FiSearch className="absolute right-9 text-[#94A2BC] size-5 font-bold" />
                                 </div>
@@ -94,8 +94,8 @@ const ClientDashboard = ({ dashboardFrame }) => {
                                 <BsThreeDots className="text-[#25252580]" />
                             </div>
                         </div>
-                        <div className='flex w-full items-center justify-between sk:gap-[100px] gap-10 sd:gap-0 p-[9px]'>
-                            <div className="flex gap-[14px] items-center py-2 w-full truncate">
+                        <div className='flex w-full items-center justify-between sk:gap-[100px] sd:gap-0 p-[9px]'>
+                            <div className="flex gap-[14px] items-center py-2 sd:w-full w-auto truncate">
                                 <img className="sd:size-[50px] size-[25px]" src={avatar} alt="" />
                                 <div className="flex flex-col gap-1">
                                     <p className="sd:text-[16px] text-[14px] truncate text-[#000000] font-medium">Elijah Adeyemi</p>
@@ -108,18 +108,18 @@ const ClientDashboard = ({ dashboardFrame }) => {
                             <div className='w-full truncate mq:flex hidden items-center justify-center'>
                                 <p className="text-[12px] font-normal py-[1px] w-[50px] px-[6px] flex items-center justify-center rounded-xl text-[#0FA726] bg-[#0FA7261A] border-[0.8px] border-[#0FA726]">Active</p>
                             </div>
-                            <div className="flex flex-col truncate gap-2 py-2 px-5 w-full">
+                            <div className="flex flex-col truncate gap-2 py-2 px-5 sd:w-full w-auto">
                                 <p className="text-[16px] text-[#252525]">Today</p>
                                 <p className="text-[#25252580] text-[16px]">11:00pm</p>
                             </div>
                             <div className="text-[#25252580] py-2 px-5 sd:block hidden">
                                 <Link to='/clients/1'>
-                                    <BsThreeDots />
+                                    <BsThreeDots className='cursor-pointer' />
                                 </Link>
                             </div>
                         </div>
-                        <div className='flex w-full items-center justify-between sk:gap-[100px] gap-10 sd:gap-0 p-[9px]'>
-                            <div className="flex gap-[14px] items-center py-2 w-full truncate">
+                        <div className='flex w-full items-center justify-between sk:gap-[100px] sd:gap-0 p-[9px]'>
+                            <div className="flex gap-[14px] items-center py-2 sd:w-full w-auto truncate">
                                 <img className="sd:size-[50px] size-[25px]" src={avatar} alt="" />
                                 <div className="flex flex-col gap-1">
                                     <p className="sd:text-[16px] text-[14px] truncate text-[#000000] font-medium">Elijah Adeyemi</p>
@@ -132,16 +132,16 @@ const ClientDashboard = ({ dashboardFrame }) => {
                             <div className='w-full mq:flex hidden truncate items-center justify-center'>
                                 <p className="text-[12px] font-normal py-[1px] w-[50px] px-[6px] flex items-center justify-center rounded-xl text-[#0FA726] bg-[#0FA7261A] border-[0.8px] border-[#0FA726]">Active</p>
                             </div>
-                            <div className="flex flex-col gap-2 py-2 truncate px-5 w-full">
+                            <div className="flex flex-col gap-2 py-2 truncate px-5 sd:w-full w-auto">
                                 <p className="text-[16px] text-[#252525]">Today</p>
                                 <p className="text-[#25252580] text-[16px]">11:00pm</p>
                             </div>
                             <div className="text-[#25252580] py-2 px-5 sd:block hidden">
-                                <BsThreeDots />
+                                <BsThreeDots className='cursor-pointer' />
                             </div>
                         </div>
-                        <div className='flex w-full items-center justify-between sk:gap-[100px] gap-10 sd:gap-0 p-[9px]'>
-                            <div className="flex gap-[14px] items-center py-2 w-full truncate">
+                        <div className='flex w-full items-center justify-between sk:gap-[100px] sd:gap-0 p-[9px]'>
+                            <div className="flex gap-[14px] items-center py-2 sd:w-full w-auto truncate">
                                 <img className="sd:size-[50px] size-[25px]" src={avatar} alt="" />
                                 <div className="flex flex-col gap-1">
                                     <p className="sd:text-[16px] text-[14px] truncate text-[#000000] font-medium">Elijah Adeyemi</p>
@@ -154,16 +154,16 @@ const ClientDashboard = ({ dashboardFrame }) => {
                             <div className='w-full mq:flex truncate hidden items-center justify-center'>
                                 <p className="text-[12px] font-normal py-[1px] w-[50px] px-[6px] flex items-center justify-center rounded-xl text-[#0FA726] bg-[#0FA7261A] border-[0.8px] border-[#0FA726]">Active</p>
                             </div>
-                            <div className="flex flex-col truncate gap-2 py-2 px-5 w-full">
+                            <div className="flex flex-col truncate gap-2 py-2 px-5 sd:w-full w-auto">
                                 <p className="text-[16px] text-[#252525]">Today</p>
                                 <p className="text-[#25252580] text-[16px]">11:00pm</p>
                             </div>
                             <div className="text-[#25252580] py-2 px-5 sd:block hidden">
-                                <BsThreeDots />
+                                <BsThreeDots className='cursor-pointer' />
                             </div>
                         </div>
-                        <div className='flex w-full items-center justify-between sk:gap-[100px] gap-10 sd:gap-0 p-[9px]'>
-                            <div className="flex gap-[14px] items-center py-2 w-full truncate">
+                        <div className='flex w-full items-center justify-between sk:gap-[100px] sd:gap-0 p-[9px]'>
+                            <div className="flex gap-[14px] items-center py-2 sd:w-full w-auto truncate">
                                 <img className="sd:size-[50px] size-[25px]" src={avatar} alt="" />
                                 <div className="flex flex-col gap-1">
                                     <p className="sd:text-[16px] text-[14px] truncate text-[#000000] font-medium">Elijah Adeyemi</p>
@@ -176,16 +176,16 @@ const ClientDashboard = ({ dashboardFrame }) => {
                             <div className='w-full mq:flex truncate hidden items-center justify-center'>
                                 <p className="text-[12px] font-normal py-[1px] w-[50px] px-[6px] flex items-center justify-center rounded-xl text-[#0FA726] bg-[#0FA7261A] border-[0.8px] border-[#0FA726]">Active</p>
                             </div>
-                            <div className="flex flex-col truncate gap-2 py-2 px-5 w-full">
+                            <div className="flex flex-col truncate gap-2 py-2 px-5 sd:w-full w-auto">
                                 <p className="text-[16px] text-[#252525]">Today</p>
                                 <p className="text-[#25252580] text-[16px]">11:00pm</p>
                             </div>
                             <div className="text-[#25252580] py-2 px-5 sd:block hidden">
-                                <BsThreeDots />
+                                <BsThreeDots className='cursor-pointer' />
                             </div>
                         </div>
-                        <div className='flex w-full items-center justify-between sk:gap-[100px] gap-10 sd:gap-0 p-[9px]'>
-                            <div className="flex gap-[14px] items-center py-2 w-full truncate">
+                        <div className='flex w-full items-center justify-between sk:gap-[100px] sd:gap-0 p-[9px]'>
+                            <div className="flex gap-[14px] items-center py-2 sd:w-full w-auto truncate">
                                 <img className="sd:size-[50px] size-[25px]" src={avatar} alt="" />
                                 <div className="flex flex-col gap-1">
                                     <p className="sd:text-[16px] text-[14px] truncate text-[#000000] font-medium">Elijah Adeyemi</p>
@@ -198,12 +198,12 @@ const ClientDashboard = ({ dashboardFrame }) => {
                             <div className='w-full mq:flex truncate hidden items-center justify-center'>
                                 <p className="text-[12px] font-normal py-[1px] w-[50px] px-[6px] flex items-center justify-center rounded-xl text-[#0FA726] bg-[#0FA7261A] border-[0.8px] border-[#0FA726]">Active</p>
                             </div>
-                            <div className="flex flex-col truncate gap-2 py-2 px-5 w-full">
+                            <div className="flex flex-col truncate gap-2 py-2 px-5 sd:w-full w-auto">
                                 <p className="text-[16px] text-[#252525]">Today</p>
                                 <p className="text-[#25252580] text-[16px]">11:00pm</p>
                             </div>
                             <div className="text-[#25252580] py-2 px-5 sd:block hidden">
-                                <BsThreeDots />
+                                <BsThreeDots className='cursor-pointer' />
                             </div>
                         </div>
                     </div>

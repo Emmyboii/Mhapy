@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { IoMdCheckmark } from "react-icons/io";
 import PaymentMethod from "../Components/PaymentMethod";
 import { useLocation } from "react-router-dom";
@@ -8,8 +8,9 @@ const Pricing = () => {
 
     const location = useLocation();
     const navigationType = useNavigationType();
-    const isReload = performance.getEntriesByType("navigation")[0]?.type === "reload";
-
+const isReload = useMemo(() => {
+        return performance.getEntriesByType("navigation")[0]?.type === "reload";
+    }, []);
     const [paymentPlan, setPaymentPlan] = useState(() => {
         return localStorage.getItem('paymentPlan') || 'basic'
     })

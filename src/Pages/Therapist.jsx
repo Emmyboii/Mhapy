@@ -85,7 +85,7 @@ const Therapist = () => {
                             <p className="text-[16px] text-[#252525]">Today</p>
                             <p className="text-[#25252580] text-[16px]">11:00pm</p>
                         </div>
-                        <button className='bg-[#441890] text-white py-[7px] px-[10px] rounded-[4.5px] w-[54%] text-[12px]'>Add member</button>
+                        <button className='bg-[#441890] text-white py-[7px] px-[10px] rounded-[4.5px] w-[54%] sd:text-[12px] text-[10px]'>Add member</button>
 
                     </div>
                     <div className='flex w-full items-center justify-between gap-10 sd:gap-0 p-[9px]'>
@@ -106,7 +106,7 @@ const Therapist = () => {
                             <p className="text-[16px] text-[#252525]">Today</p>
                             <p className="text-[#25252580] text-[16px]">11:00pm</p>
                         </div>
-                        <button className='bg-[#441890] text-white py-[7px] px-[10px] rounded-[4.5px] w-[54%] text-[12px]'>Add member</button>
+                        <button className='bg-[#441890] text-white py-[7px] px-[10px] rounded-[4.5px] w-[54%] sd:text-[12px] text-[10px]'>Add member</button>
 
                     </div>
                     <div className='flex w-full items-center justify-between gap-10 sd:gap-0 p-[9px]'>
@@ -127,7 +127,7 @@ const Therapist = () => {
                             <p className="text-[16px] text-[#252525]">Today</p>
                             <p className="text-[#25252580] text-[16px]">11:00pm</p>
                         </div>
-                        <button className='bg-[#441890] text-white py-[7px] px-[10px] rounded-[4.5px] w-[54%] text-[12px]'>Add member</button>
+                        <button className='bg-[#441890] text-white py-[7px] px-[10px] rounded-[4.5px] w-[54%] sd:text-[12px] text-[10px]'>Add member</button>
 
                     </div>
                     <div className='flex w-full items-center justify-between gap-10 sd:gap-0 p-[9px]'>
@@ -148,7 +148,7 @@ const Therapist = () => {
                             <p className="text-[16px] text-[#252525]">Today</p>
                             <p className="text-[#25252580] text-[16px]">11:00pm</p>
                         </div>
-                        <button className='bg-[#441890] text-white py-[7px] px-[10px] rounded-[4.5px] w-[54%] text-[12px]'>Add member</button>
+                        <button className='bg-[#441890] text-white py-[7px] px-[10px] rounded-[4.5px] w-[54%] sd:text-[12px] text-[10px]'>Add member</button>
 
                     </div>
                     <div className='flex w-full items-center justify-between gap-10 sd:gap-0 p-[9px]'>
@@ -169,7 +169,7 @@ const Therapist = () => {
                             <p className="text-[16px] text-[#252525]">Today</p>
                             <p className="text-[#25252580] text-[16px]">11:00pm</p>
                         </div>
-                        <button className='bg-[#441890] text-white py-[7px] px-[10px] rounded-[4.5px] w-[54%] text-[12px]'>Add member</button>
+                        <button className='bg-[#441890] text-white py-[7px] px-[10px] rounded-[4.5px] w-[54%] sd:text-[12px] text-[10px]'>Add member</button>
 
                     </div>
                 </div>

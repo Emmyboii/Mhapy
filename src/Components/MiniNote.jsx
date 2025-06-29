@@ -22,7 +22,7 @@ const MiniNote = ({ setAddNotes, setNotes }) => {
                             <p className='sm:text-[13px] text-[10px] text-[#25252580] font-normal'>14/04/2025</p>
                             <div className='flex justify-between w-full items-center'>
                                 <p className='sm:text-[20px] text-[14px] text-[#252525] font-[450]'>Amanda’s Note</p>
-                                <BsThreeDots />
+                                <BsThreeDots className='cursor-pointer' />
                             </div>
                         </div>
                         <hr className='border border-[#25252533]' />
@@ -41,7 +41,7 @@ const MiniNote = ({ setAddNotes, setNotes }) => {
                             <p className='sm:text-[13px] text-[10px] text-[#25252580] font-normal'>14/04/2025</p>
                             <div className='flex justify-between w-full items-center'>
                                 <p className='sm:text-[20px] text-[14px] text-[#252525] font-[450]'>Amanda’s Note</p>
-                                <BsThreeDots />
+                                <BsThreeDots className='cursor-pointer' />
                             </div>
                         </div>
                         <hr className='border border-[#25252533]' />
@@ -53,7 +53,8 @@ const MiniNote = ({ setAddNotes, setNotes }) => {
                             <img
                                 onClick={() => {
                                     setAddNotes(true)
-                                    localStorage.setItem('addOrEditNote', true)
+                                    localStorage.setItem('addOrEditNote', JSON.stringify(true))
+                                    window.scrollTo(0, 0)
                                 }}
                                 className='size-5 sm:block cursor-pointer hidden' src={NoteEdit} alt="" />
                         </div>
@@ -63,7 +64,7 @@ const MiniNote = ({ setAddNotes, setNotes }) => {
                             <p className='sm:text-[13px] text-[10px] text-[#25252580] font-normal'>14/04/2025</p>
                             <div className='flex justify-between w-full items-center'>
                                 <p className='sm:text-[20px] text-[14px] text-[#252525] font-[450]'>Amanda’s Note</p>
-                                <BsThreeDots />
+                                <BsThreeDots className='cursor-pointer' />
                             </div>
                         </div>
                         <hr className='border border-[#25252533]' />
@@ -79,7 +80,8 @@ const MiniNote = ({ setAddNotes, setNotes }) => {
                     <div
                         onClick={() => {
                             setAddNotes(true)
-                            localStorage.setItem('addOrEditNote', true)
+                            localStorage.setItem('addOrEditNote', JSON.stringify(true))
+                            window.scrollTo(0, 0)
                         }}
                         className='border-dashed self-center mx-auto sm:py-[43px] cursor-pointer py-[28px] sm:w-[150px] w-[103px] sm:px-10 px-[20px] flex flex-col text-center items-center justify-center gap-2 rounded-2xl border-[#2525254D] border-[1.4px]'>
                         <img className='size-5' src={NoteEdit} alt="" />
@@ -105,7 +107,7 @@ const MiniNote = ({ setAddNotes, setNotes }) => {
                             <p className='sm:text-[13px] text-[10px] text-[#25252580] font-normal'>14/04/2025</p>
                             <div className='flex justify-between w-full items-center'>
                                 <p className='sm:text-[20px] text-[14px] text-[#252525] font-[450]'>Amanda’s Note</p>
-                                <BsThreeDots />
+                                <BsThreeDots className='cursor-pointer' />
                             </div>
                         </div>
                         <hr className='border border-[#25252533]' />
@@ -124,7 +126,7 @@ const MiniNote = ({ setAddNotes, setNotes }) => {
                             <p className='sm:text-[13px] text-[10px] text-[#25252580] font-normal'>14/04/2025</p>
                             <div className='flex justify-between w-full items-center'>
                                 <p className='sm:text-[20px] text-[14px] text-[#252525] font-[450]'>Amanda’s Note</p>
-                                <BsThreeDots />
+                                <BsThreeDots className='cursor-pointer' />
                             </div>
                         </div>
                         <hr className='border border-[#25252533]' />
@@ -136,7 +138,7 @@ const MiniNote = ({ setAddNotes, setNotes }) => {
                             <img
                                 onClick={() => {
                                     setAddNotes(true)
-                                    localStorage.setItem('addOrEditNote', true)
+                                    localStorage.setItem('addOrEditNote', JSON.stringify(true))
                                 }}
                                 className='size-5 sm:block cursor-pointer hidden' src={NoteEdit} alt="" />
                         </div>
@@ -146,7 +148,7 @@ const MiniNote = ({ setAddNotes, setNotes }) => {
                             <p className='sm:text-[13px] text-[10px] text-[#25252580] font-normal'>14/04/2025</p>
                             <div className='flex justify-between w-full items-center'>
                                 <p className='sm:text-[20px] text-[14px] text-[#252525] font-[450]'>Amanda’s Note</p>
-                                <BsThreeDots />
+                                <BsThreeDots className='cursor-pointer' />
                             </div>
                         </div>
                         <hr className='border border-[#25252533]' />
@@ -164,7 +166,7 @@ const MiniNote = ({ setAddNotes, setNotes }) => {
                             <p className='sm:text-[13px] text-[10px] text-[#25252580] font-normal'>14/04/2025</p>
                             <div className='flex justify-between w-full items-center'>
                                 <p className='sm:text-[20px] text-[14px] text-[#252525] font-[450]'>Amanda’s Note</p>
-                                <BsThreeDots />
+                                <BsThreeDots className='cursor-pointer' />
                             </div>
                         </div>
                         <hr className='border border-[#25252533]' />

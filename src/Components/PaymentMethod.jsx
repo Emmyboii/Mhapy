@@ -1,6 +1,6 @@
 import mastercard from '../Images/mastercard.svg';
 import { IoMdCheckmark } from 'react-icons/io';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { RiVisaLine } from "react-icons/ri";
 import { FaStripe } from 'react-icons/fa';
 import { useLocation, useNavigationType } from 'react-router-dom';
@@ -8,8 +8,9 @@ import { useLocation, useNavigationType } from 'react-router-dom';
 const PaymentMethod = ({ paymentPlan, paymentMethod, setPaymentMethod, continueClicked, setContinueClicked }) => {
     const location = useLocation();
     const navigationType = useNavigationType();
-    const isReload = performance.getEntriesByType("navigation")[0]?.type === "reload";
-
+const isReload = useMemo(() => {
+        return performance.getEntriesByType("navigation")[0]?.type === "reload";
+    }, []);
     const [freq, setFreq] = useState('monthly')
     const [LgScreens, setLgScreens] = useState(window.innerWidth > 900)
 

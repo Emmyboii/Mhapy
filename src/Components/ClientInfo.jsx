@@ -3,7 +3,7 @@ import avatar from '../Images/avatar.svg';
 const ClientInfo = () => {
 
     return (
-        <div className='py-6 pb-10 px-[27px] flex flex-col gap-10'>
+        <div className='py-6 pb-10 sd:px-[27px] px-3 flex flex-col gap-10'>
             <div className='py-[59px] px-[54px] border border-[#25252533] rounded-[20px] md:flex hidden flex-col gap-[60px]'>
                 <div className='flex items-center justify-between'>
                     <p className='text-2xl font-medium text-[#252525]'>Client Infomation</p>
@@ -16,7 +16,7 @@ const ClientInfo = () => {
                     </div>
                     <div className='flex flex-col gap-[33px]'>
                         <div className='flex flex-col gap-3'>
-                            <p className='text-base font-medium text-[#25252580]'>Frist Name</p>
+                            <p className='text-base font-medium text-[#25252580]'>First Name</p>
                             <p className='text-lg font-medium text-[#252525]'>Sandra</p>
                         </div>
                         <div className='flex flex-col gap-3'>

@@ -10,9 +10,8 @@ import api from '../Images/api.svg';
 import settings from '../Images/settings.svg';
 import avatar from '../Images/avatar.svg';
 import { Link, useLocation } from 'react-router-dom'
-import { CgProfile } from "react-icons/cg";
 
-const Sidebar = () => {
+const Sidebar = ({ setApi }) => {
 
     const location = useLocation()
 
@@ -27,7 +26,7 @@ const Sidebar = () => {
 
     const general = [
         { item: 'Homework', image: homework, path: '/homework' },
-        { item: 'API Key', image: api, path: '/api' },
+        { item: 'API Key', image: api, modal: true },
         { item: 'Settings', image: settings, path: '/settings' },
     ]
 
@@ -43,7 +42,11 @@ const Sidebar = () => {
                         <p className='uppercase text-[16px] text-[#252525CC] font-medium'>Main Menu</p>
                         <div className='flex flex-col gap-4 mt-4'>
                             {mainMenu.map(({ item, image, path }) => (
-                                <Link key={item} to={path}>
+                                <Link
+                                    onClick={() => {
+                                        setApi(false)
+                                    }}
+                                    key={item} to={path}>
                                     <div className={`flex py-[10px] px-5 rounded-[10px] gap-3 text-[16px] hover:bg-[#44189080] hover:text-[#ffffff] text-[#25252580] ${location.pathname === path ? 'bg-[#44189080] text-white' : ''}`}>
                                         <img className='size-6' src={image} alt="" />
                                         {item}
@@ -56,8 +59,14 @@ const Sidebar = () => {
                     <div className='mt-7'>
                         <p className='uppercase text-[16px] text-[#252525CC] font-medium'>General</p>
                         <div className='flex flex-col gap-4 mt-4'>
-                            {general.map(({ item, image, path }) => (
-                                <Link key={item} to={path}>
+                            {general.map(({ item, image, path, modal }) => (
+                                <Link
+                                    onClick={() => {
+                                        if (modal) setApi(true);
+                                        else setApi(false)
+                                    }}
+                                    key={item} to={path}
+                                >
                                     <div className='flex py-[10px] px-5 rounded-[10px]  gap-3 text-[16px] hover:bg-[#44189080 hover:text-[#ffffff]] text-[#25252580]'>
                                         <img className='size-6' src={image} alt="" />
                                         {item}

@@ -13,15 +13,17 @@ import Message from './Pages/Message';
 import Pricing from './Pages/Pricing';
 import Calender from './Pages/Calender';
 import Notes from './Pages/Notes';
+import API from './Pages/API';
 
 function App() {
 
   const location = useLocation()
 
   const [openSidebar, setOpenSidebar] = useState(false)
+  const [api, setApi] = useState(false)
 
   useEffect(() => {
-    if (openSidebar) {
+    if (openSidebar || api) {
       document.body.style.overflow = 'hidden'
     } else {
       document.body.style.overflow = 'auto'
@@ -30,7 +32,7 @@ function App() {
     return () => {
       document.body.style.overflow = 'auto';
     };
-  }, [openSidebar])
+  }, [openSidebar, api])
 
   const [dashboardFrame, setDashboardFrame] = useState(() => {
     return localStorage.getItem('dashboardFrame') || 'portal'
@@ -62,8 +64,8 @@ function App() {
     <div className="flex w-full">
       {!hideSidebar && (
         <>
-          <Sidebar />
-          <SMSidebar openSidebar={openSidebar} setOpenSidebar={setOpenSidebar} />
+          <Sidebar setApi={setApi} />
+          <SMSidebar setApi={setApi} openSidebar={openSidebar} setOpenSidebar={setOpenSidebar} />
         </>
 
       )}
@@ -86,12 +88,14 @@ function App() {
               <Route path="/404" element={<NotFound />} />
               <Route path="*" element={<Navigate to="/404" />} />
             </Routes>
+            <API setApi={setApi} api={api} />
           </div>
         ) : (
           <div>
             <Routes>
               <Route path="/message" element={<Message />} />
             </Routes>
+            <API setApi={setApi} api={api} />
           </div>
         )}
       </div>
