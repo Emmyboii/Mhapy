@@ -63,7 +63,7 @@ const Login = () => {
                             placeholder='Enter your password'
                         />
                         <button
-                            className={`text-white rounded-md p-3 gap-2 outline-none w-full ${allInputBoxFilled ? 'bg-[#441890]' : 'bg-[#4418904D]'}`}
+                            className={`text-white rounded-md p-3 gap-2 outline-none w-full ${allInputBoxFilled ? 'bg-[#441890] hover:bg-[#441890CC]' : 'bg-[#4418904D]'}`}
                             type='submit'
                             disabled={!allInputBoxFilled}
                         >

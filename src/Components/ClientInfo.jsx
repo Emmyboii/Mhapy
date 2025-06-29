@@ -12,7 +12,7 @@ const ClientInfo = () => {
                 <div className='flex justify-between w-full'>
                     <div className='flex flex-col gap-4'>
                         <img className='size-[118px]' src={avatar} alt="" />
-                        <button className='bg-[#441890] text-white py-[5px] px-2 rounded-[4.5px]'>Message</button>
+                        <button className='bg-[#441890] hover:bg-[#441890CC] text-white py-[5px] px-2 rounded-[4.5px]'>Message</button>
                     </div>
                     <div className='flex flex-col gap-[33px]'>
                         <div className='flex flex-col gap-3'>
@@ -92,7 +92,7 @@ const ClientInfo = () => {
                         </div>
                         <p className="text-[12px] font-normal py-[1px] w-[50px] px-[18px] flex items-center justify-center rounded-xl text-[#0FA726] bg-[#0FA7261A] border-[0.8px] border-[#0FA726]">Active</p>
                     </div>
-                    <button className='bg-[#441890] text-white py-[8px] px-[27px] rounded-[4.5px]'>Message</button>
+                    <button className='bg-[#441890] hover:bg-[#441890CC] text-white py-[8px] px-[27px] rounded-[4.5px]'>Message</button>
                 </div>
                 <div className='border border-[#25252533] rounded-[6px] py-[14px] px-5 flex justify-between items-center w-full'>
                     <div className='flex flex-col gap-[33px]'>

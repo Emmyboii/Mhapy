@@ -131,7 +131,7 @@ const isReload = useMemo(() => {
                                 setContinueClicked(true)
                                 window.scrollTo(0, 0)
                             }}
-                                className='bg-[#441890] text-white py-[10px] px-[27px] mc:hidden block rounded-[6px]'>Continue</button>
+                                className='bg-[#441890] hover:bg-[#441890CC] text-white py-[10px] px-[27px] mc:hidden block rounded-[6px]'>Continue</button>
                         </div>
                     )}
                     {(continueClicked || LgScreens) && (
@@ -178,7 +178,7 @@ const isReload = useMemo(() => {
                                             Yealy / $199
                                         </p>
                                     </div>
-                                    <button className='bg-[#441890] text-white py-[10px] px-[27px] rounded-[6px]'>Confirm Payment</button>
+                                    <button className='bg-[#441890] hover:bg-[#441890CC] text-white py-[10px] px-[27px] rounded-[6px]'>Confirm Payment</button>
                                 </div>
                             ) : paymentPlan === 'business' ? (
                                 <div className='bg-white pt-[60px] w-full 3xl:w-[20%] pb-[66px] px-[30px] rounded-[10px] flex flex-col gap-[55px] shadow-custom-sm'>
@@ -222,7 +222,7 @@ const isReload = useMemo(() => {
                                             Yealy / $199
                                         </p>
                                     </div>
-                                    <button className='bg-[#441890] text-white py-[10px] px-[27px] rounded-[6px]'>Confirm Payment</button>
+                                    <button className='bg-[#441890] hover:bg-[#441890CC] text-white py-[10px] px-[27px] rounded-[6px]'>Confirm Payment</button>
                                 </div>
                             ) : (
                                 <div className='bg-white pt-[60px] w-full 3xl:w-[20%] pb-[66px] px-[30px] rounded-[10px] flex flex-col gap-[55px] shadow-custom-sm'>
@@ -266,7 +266,7 @@ const isReload = useMemo(() => {
                                             Yealy / $199
                                         </p>
                                     </div>
-                                    <button className='bg-[#441890] text-white py-[10px] px-[27px] rounded-[6px]'>Confirm Payment</button>
+                                    <button className='bg-[#441890] hover:bg-[#441890CC] text-white py-[10px] px-[27px] rounded-[6px]'>Confirm Payment</button>
                                 </div>
                             )}
                         </>

@@ -85,7 +85,7 @@ const isReload = useMemo(() => {
                                     </div>
                                 </div>
                                 <p className='text-[16px] text-[#25252580]'>Lorem ipsum dolor sit amet</p>
-                                <button onClick={onClickContinue1} className='py-[10px] w-full bg-[#441890] text-white rounded-[39px] text-[16px] font-[400]'>Get started</button>
+                                <button onClick={onClickContinue1} className='py-[10px] w-full bg-[#441890] hover:bg-[#441890CC] text-white rounded-[39px] text-[16px] font-[400]'>Get started</button>
                             </div>
                             <div className="py-[7px] px-[9px] flex flex-col gap-[14px]">
                                 <div className="flex items-center gap-[14.23px] text-[16px] font-normal">
@@ -112,7 +112,7 @@ const isReload = useMemo(() => {
                                     </div>
                                 </div>
                                 <p className='text-[16px] text-[#25252580]'>Lorem ipsum dolor sit amet</p>
-                                <button onClick={onClickContinue2} className='py-[10px] w-full bg-[#441890] text-white rounded-[39px] text-[16px] font-[400]'>Get started</button>
+                                <button onClick={onClickContinue2} className='py-[10px] w-full bg-[#441890] hover:bg-[#441890CC] text-white rounded-[39px] text-[16px] font-[400]'>Get started</button>
                             </div>
                             <div className="py-[7px] px-[9px] flex flex-col gap-[14px]">
                                 <div className="flex items-center gap-[14.23px] text-[16px] font-normal">
@@ -139,7 +139,7 @@ const isReload = useMemo(() => {
                                     </div>
                                 </div>
                                 <p className='text-[16px] text-[#25252580]'>Lorem ipsum dolor sit amet</p>
-                                <button onClick={onClickContinue3} className='py-[10px] w-full bg-[#441890] text-white rounded-[39px] text-[16px] font-[400]'>Get started</button>
+                                <button onClick={onClickContinue3} className='py-[10px] w-full bg-[#441890] hover:bg-[#441890CC] text-white rounded-[39px] text-[16px] font-[400]'>Get started</button>
                             </div>
                             <div className="py-[7px] px-[9px] flex flex-col gap-[14px]">
                                 <div className="flex items-center gap-[14.23px] text-[16px] font-normal">

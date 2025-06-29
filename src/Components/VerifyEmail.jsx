@@ -117,7 +117,7 @@ const VerifyEmail = () => {
                             </p>
 
                             <button
-                                className={`text-white mt-14 rounded-md p-3 gap-2 outline-none w-full ${allInputBoxFilled ? 'bg-[#441890] cursor-pointer' : 'bg-[#4418904D] cursor-not-allowed'}`}
+                                className={`text-white mt-14 rounded-md p-3 gap-2 outline-none w-full ${allInputBoxFilled ? 'bg-[#441890] hover:bg-[#441890CC] cursor-pointer' : 'bg-[#4418904D] cursor-not-allowed'}`}
                                 type="submit"
                                 disabled={!allInputBoxFilled}
                             >
@@ -134,7 +134,7 @@ const VerifyEmail = () => {
                             Click the button below to continue
                         </p>
                         <button
-                            className={`text-white mt-14 rounded-md p-3 gap-2 outline-none w-full bg-[#441890] cursor-pointer'`}
+                            className={`text-white mt-14 rounded-md p-3 gap-2 outline-none w-full bg-[#441890] hover:bg-[#441890CC] cursor-pointer'`}
                             type="submit"
                         >
                             Continue

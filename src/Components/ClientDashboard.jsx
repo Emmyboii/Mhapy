@@ -1,12 +1,28 @@
 import Select from 'react-select';
 import { FiSearch } from 'react-icons/fi'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { IoFilter } from "react-icons/io5";
 import { BsThreeDots } from "react-icons/bs";
 import avatar from '../Images/avatar.svg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const ClientDashboard = ({ dashboardFrame }) => {
+
+    const navigate = useNavigate()
+
+    const [smScreens, setSmScreens] = useState(window.innerWidth < 550)
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (smScreens) {
+                setSmScreens(window.innerWidth < 550)
+            }
+        }
+
+        window.addEventListener('resize', handleResize)
+
+        return () => window.removeEventListener('resize', handleResize)
+    }, [smScreens])
 
     const options = [
         { value: '', label: 'Filter' }
@@ -94,7 +110,13 @@ const ClientDashboard = ({ dashboardFrame }) => {
                                 <BsThreeDots className="text-[#25252580]" />
                             </div>
                         </div>
-                        <div className='flex w-full items-center justify-between sk:gap-[100px] sd:gap-0 p-[9px]'>
+                        <div
+                            onClick={() => {
+                                if (smScreens) {
+                                    navigate('/clients/1')
+                                }
+                            }}
+                            className='flex w-full sd:cursor-auto cursor-pointer items-center justify-between sk:gap-[100px] sd:gap-0 p-[9px]'>
                             <div className="flex gap-[14px] items-center py-2 sd:w-full w-auto truncate">
                                 <img className="sd:size-[50px] size-[25px]" src={avatar} alt="" />
                                 <div className="flex flex-col gap-1">

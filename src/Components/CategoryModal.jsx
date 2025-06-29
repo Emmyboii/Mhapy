@@ -36,7 +36,7 @@ const CategoryModal = ({ categoryModal, setCategoryModal }) => {
                 </div>
                 <div className='flex items-center gap-[15px] w-full'>
                     <button onClick={() => setCategoryModal(false)} className='py-[10px] px-10 border border-[#441890] w-full text-[#441890] rounded-md'>Cancel</button>
-                    <button onClick={() => setCategoryModal(false)} className='py-[10px] px-10 border bg-[#441890] w-full text-white border-[#441890] rounded-md'>Save</button>
+                    <button onClick={() => setCategoryModal(false)} className='py-[10px] px-10 border bg-[#441890] hover:bg-[#441890CC] w-full text-white border-[#441890] rounded-md'>Save</button>
                 </div>
             </div>
         </div>
