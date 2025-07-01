@@ -67,7 +67,7 @@ const isReload = useMemo(() => {
 
     return (
         <div>
-            <h1 className="text-[24px] text-[#252525] mk:hidden block font-medium mb-5">Pricing</h1>
+            <h1 className="text-[18px] text-[#252525] mk:hidden block font-medium mb-5">Pricing</h1>
             {!paymentMethod && (
                 <div className='flex flex-col gap-10'>
                     <div className='flex flex-col gap-2 items-center'>

@@ -26,6 +26,7 @@ module.exports = {
         'custom-md': '2px 1px 12px rgba(0 0 0 / 0.1)',
         'custom-sm': '0px 5px 12px rgba(0 0 0 / 0.1)',
         'custom-sp': '0px 1px 5px rgba(0 0 0 / 0.1)',
+        'custom-input': '0px 1px 5px #1018280D',
       },
     },
   },

@@ -87,7 +87,7 @@ const ClientDashboard = ({ dashboardFrame }) => {
                                         id=""
                                         placeholder="Search client"
                                     />
-                                    <FiSearch className="absolute right-9 text-[#94A2BC] size-5 font-bold" />
+                                    <FiSearch className="absolute sm:right-9 right-5 text-[#94A2BC] size-5 font-bold" />
                                 </div>
                                 <div className='relative md:flex hidden items-center'>
                                     <Select

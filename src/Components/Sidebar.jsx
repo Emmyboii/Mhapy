@@ -12,10 +12,12 @@ import settings from '../Images/settings.svg';
 import settings2 from '../Images/setting2.svg';
 import avatar from '../Images/avatar.svg';
 import { Link, useLocation } from 'react-router-dom'
+import { useState } from 'react';
 
 const Sidebar = ({ setApi }) => {
 
     const location = useLocation()
+    const [hoveredSetting, setHoveredSetting] = useState(null);
 
     const mainMenu = [
         { item: 'Dashboard', image: dashboard, image2: dashboard2, path: '/' },
@@ -33,7 +35,7 @@ const Sidebar = ({ setApi }) => {
     ]
 
     return (
-        <div className='w-[260px] lg:block hidden p-5 sticky top-0 hide-scrollbar overflow-y-scroll h-screen bg-[#44189008]'>
+        <div className='w-[260px] xl:block hidden p-5 sticky top-0 hide-scrollbar overflow-y-scroll h-screen bg-[#44189008]'>
             <Link className="flex items-center gap-1" to='/'>
                 <img className="size-[30px]" src={Logo} alt="Logo" />
                 <p className="text-[#441890] font-bold text-[27px]">mhapy</p>
@@ -41,48 +43,58 @@ const Sidebar = ({ setApi }) => {
             <div className='flex flex-col justify-between h-full gap-[364px]'>
                 <div className='flex flex-col gap-[30px]'>
                     <div className='mt-7'>
-                        <p className='uppercase text-[16px] text-[#252525CC] font-medium'>Main Menu</p>
+                       <p className='uppercase text-[16px] text-[#252525CC] font-medium'>Main Menu</p>
                         <div className='flex flex-col gap-4 mt-4'>
-                            {mainMenu.map(({ item, image, image2, path }) => (
-                                <Link
-                                    onClick={() => {
-                                        setApi(false)
-                                    }}
-                                    key={item} to={path}>
-                                    <div className={`flex py-[10px] px-5 rounded-[10px] gap-3 text-[16px] hover:bg-[#44189080] hover:text-[#ffffff] text-[#25252580] ${location.pathname === path ? 'bg-[#44189080] text-white' : ''}`}>
-                                        {location.pathname === path ? (
-                                            <img className='size-6' src={image2} alt="" />
-                                        ) : (
-                                            <img className='size-6' src={image} alt="" />
-                                        )}
-                                        {item}
-                                    </div>
-                                </Link>
-                            ))}
+                            {mainMenu.map(({ item, image, image2, path }) => {
+
+                                const isActive = location.pathname === path;
+                                const isHovered = hoveredSetting === path;
+
+                                return (
+                                    <Link
+                                        onClick={() => {
+                                            setApi(false)
+                                        }}
+                                        key={item} to={path}>
+                                        <div
+                                            onMouseEnter={() => setHoveredSetting(path)}
+                                            onMouseLeave={() => setHoveredSetting(null)}
+                                            className={`flex py-[10px] px-5 rounded-[10px] gap-3 text-[16px] hover:bg-[#44189080] hover:text-[#ffffff] text-[#25252580] ${location.pathname === path ? 'bg-[#44189080] text-white' : ''}`}>
+                                            <img src={isActive || isHovered ? image2 : image} alt="" />
+                                            {item}
+                                        </div>
+                                    </Link>
+                                )
+                            })}
                         </div>
                     </div>
 
                     <div className='mt-7'>
                         <p className='uppercase text-[16px] text-[#252525CC] font-medium'>General</p>
                         <div className='flex flex-col gap-4 mt-4'>
-                            {general.map(({ item, image, image2, path, modal }) => (
-                                <Link
-                                    onClick={() => {
-                                        if (modal) setApi(true);
-                                        else setApi(false)
-                                    }}
-                                    key={item} to={path}
-                                >
-                                    <div className='flex py-[10px] px-5 rounded-[10px]  gap-3 text-[16px] hover:bg-[#44189080 hover:text-[#ffffff]] text-[#25252580]'>
-                                        {location.pathname === path ? (
-                                            <img className='size-6' src={image2} alt="" />
-                                        ) : (
-                                            <img className='size-6' src={image} alt="" />
-                                        )}
-                                        {item}
-                                    </div>
-                                </Link>
-                            ))}
+                            {general.map(({ item, image, image2, path, modal }) => {
+
+                                const isActive = location.pathname === path;
+                                const isHovered = hoveredSetting === path;
+
+                                return (
+                                    <Link
+                                        onClick={() => {
+                                            if (modal) setApi(true);
+                                            else setApi(false)
+                                        }}
+                                        key={item} to={path}
+                                    >
+                                        <div
+                                            onMouseEnter={() => setHoveredSetting(path)}
+                                            onMouseLeave={() => setHoveredSetting(null)}
+                                            className={`flex py-[10px] px-5 rounded-[10px] gap-3 text-[16px] hover:bg-[#44189080] hover:text-[#ffffff] text-[#25252580] ${location.pathname === path ? 'bg-[#44189080] text-white' : ''}`}>
+                                            <img src={isActive || isHovered ? image2 : image} alt="" />
+                                            {item}
+                                        </div>
+                                    </Link>
+                                )
+                            })}
                         </div>
                     </div>
                 </div>
@@ -99,7 +111,7 @@ const Sidebar = ({ setApi }) => {
                     </div>
                 </Link>
             </div>
-        </div>
+        </div >
     )
 }
 

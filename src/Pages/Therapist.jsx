@@ -17,7 +17,7 @@ const Therapist = () => {
 
     return (
         <div className="font-medium flex flex-col">
-            <h1 className="text-[24px] text-[#252525] mk:hidden block font-medium mb-4">Therapist</h1>
+            <h1 className="text-[18px] text-[#252525] mk:hidden block font-medium mb-4">Therapist</h1>
             <div className="flex items-center sm:gap-10 gap-3 mb-6 bg-[#F6F6F6] text-[#25252580] p-[9px] rounded-[10px] sm:w-[370px] w-full justify-between">
                 <p
                     className={`cursor-pointer text-[13px] sm:text-[15px] py-2 px-5 ${therapist === 'Team Member' ? 'bg-white rounded-lg' : ''}`}
@@ -53,7 +53,7 @@ const Therapist = () => {
                                     id=""
                                     placeholder="Search client"
                                 />
-                                <FiSearch className="absolute right-9 text-[#94A2BC] size-5 font-bold" />
+                                <FiSearch className="absolute sm:right-9 right-5 text-[#94A2BC] size-5 font-bold" />
                             </div>
                         </div>
                     </div>

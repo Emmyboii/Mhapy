@@ -6,7 +6,7 @@ const Profile = () => {
     return (
         <div className=''>
             <div className='flex flex-col gap-4'>
-                <h1 className="text-[24px] text-[#252525] mk:hidden block font-medium mb-2">Client Information</h1>
+                <h1 className="text-[18px] text-[#252525] mk:hidden block font-medium mb-2">Client Information</h1>
                 <div className='border border-[#25252533] sd:rounded-[24px] rounded-md flex flex-col gap-4 sd:py-[30px] py-4 sd:px-[50px] px-5'>
                     <div className='flex justify-between items-center w-full'>
                         <div className='flex gap-4 items-center'>

@@ -14,6 +14,8 @@ import Pricing from './Pages/Pricing';
 import Calender from './Pages/Calender';
 import Notes from './Pages/Notes';
 import API from './Pages/API';
+import Settings from './Pages/Settings';
+import Homework from './Pages/Homework';
 
 function App() {
 
@@ -83,6 +85,8 @@ function App() {
               <Route path="/pricing" element={<Pricing />} />
               <Route path="/calender" element={<Calender />} />
               <Route path="/notes" element={<Notes />} />
+              <Route path="/settings" element={<Settings />} />
+              <Route path="/homework" element={<Homework />} />
               <Route path="/clients/:id" element={<ClientInfo setOpenSidebar={setOpenSidebar} />} />
               <Route path="/auth/*" element={<Authentication />} />
               <Route path="/404" element={<NotFound />} />

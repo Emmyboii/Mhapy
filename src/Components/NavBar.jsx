@@ -68,7 +68,7 @@ const NavBar = ({ setNotification, notification, dashboardFrame, setOpenSidebar 
                 <div onClick={() => setNotification(!notification)} className="bg-[#F6F6F6] cursor-pointer rounded-[84px]">
                     <FaRegBell className="size-10 p-[10px] text-[#23235F]" />
                 </div>
-                <div className="bg-[#441890] mf:block hidden cursor-pointer text-white py-[11px] px-4 rounded-md">
+                <div className="bg-[#441890] hover:bg-[#441890CC] mf:block hidden cursor-pointer text-white py-[11px] px-4 rounded-md">
                     Add team member
                 </div>
                 <Link to='/profile'>
