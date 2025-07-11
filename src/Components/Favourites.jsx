@@ -1,8 +1,12 @@
 import { FiSearch } from 'react-icons/fi'
 import NoteEdit from '../Images/noteedit.svg';
 import { BsThreeDots } from 'react-icons/bs';
+import { useNavigate } from 'react-router-dom';
 
-const Favourites = ({ setAddNotes }) => {
+const Favourites = () => {
+
+    const navigate = useNavigate()
+
     return (
         <div className='flex flex-col gap-6'>
             <div className='flex sm:flex-row flex-col mq:gap-3 sm:gap-2 gap-1 sm:items-center justify-between'>
@@ -76,8 +80,8 @@ const Favourites = ({ setAddNotes }) => {
                         <p className='sm:text-[13px] text-[10px] text-[#25252580] font-normal'>12:30 PM, Monday</p>
                         <img
                             onClick={() => {
-                                setAddNotes(true)
-                                localStorage.setItem('addOrEditNote', JSON.stringify(true))
+                                navigate('/notes/editnote')
+                                window.scrollTo(0, 0)
                             }}
                             className='size-5 sm:block cursor-pointer hidden' src={NoteEdit} alt="" />
                     </div>

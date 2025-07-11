@@ -61,6 +61,33 @@ const VerifyEmail = () => {
         }
     };
 
+    const handlePaste = (e) => {
+        e.preventDefault();
+        const paste = e.clipboardData.getData('text');
+
+        // Remove non-digit characters and take only first 4 digits
+        const digits = paste.replace(/\D/g, '').slice(0, 4).split('');
+
+        if (digits.length === 0) return;
+
+        const newCode = { ...verificationCode };
+        digits.forEach((digit, i) => {
+            newCode[`code${i + 1}`] = digit;
+            if (inputRefs[i]?.current) {
+                inputRefs[i].current.value = digit;
+            }
+        });
+
+        setVerificationCode(newCode);
+
+        // Move focus to the last filled input
+        const lastFilled = Math.min(digits.length, inputRefs.length) - 1;
+        if (inputRefs[lastFilled]?.current) {
+            inputRefs[lastFilled].current.focus();
+        }
+    };
+
+
     return (
         <div className="min-h-screen flex items-center justify-center py-[25px] bg-white">
             <Link className="sp:flex hidden absolute top-5 left-10 items-center gap-1" to='/'>
@@ -106,7 +133,7 @@ const VerifyEmail = () => {
                                         onChange={(e) => handleInputChange(e, index)}
                                         onKeyDown={(e) => handleKeyDown(e, index)}
                                         name={code}
-
+                                        onPaste={(e) => handlePaste(e)}
                                     />
                                 ))}
                             </div>

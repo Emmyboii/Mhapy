@@ -19,13 +19,20 @@ const NavBar = ({ setNotification, notification, dashboardFrame, setOpenSidebar 
         }
 
         if (location.pathname.includes('/clients')) return 'Client Profile';
+        if (location.pathname.includes('/clientHomework')) return 'Homework';
 
         const routeTitles = {
             '/therapist': 'Therapist',
             '/calender': 'Calender',
+            '/add-team-members': 'Add Team members',
             '/notes': 'Notes',
+            '/notes/newnote': 'Notes',
+            '/notes/allnotes': 'Notes',
+            '/notes/editnote': 'Notes',
+            '/notes/deleted': 'Notes',
             '/message': 'Message',
             '/pricing': 'Pricing',
+            '/pricing/payment': 'Pricing',
             '/homework': 'Homework',
             '/api': 'API',
             '/settings': 'Settings',
@@ -68,9 +75,11 @@ const NavBar = ({ setNotification, notification, dashboardFrame, setOpenSidebar 
                 <div onClick={() => setNotification(!notification)} className="bg-[#F6F6F6] cursor-pointer rounded-[84px]">
                     <FaRegBell className="size-10 p-[10px] text-[#23235F]" />
                 </div>
-                <div className="bg-[#441890] hover:bg-[#441890CC] mf:block hidden cursor-pointer text-white py-[11px] px-4 rounded-md">
-                    Add team member
-                </div>
+                <Link to='/add-team-members'>
+                    <div className="bg-[#441890] hover:bg-[#441890CC] mf:block hidden cursor-pointer text-white py-[11px] px-4 rounded-md">
+                        Add team member
+                    </div>
+                </Link>
                 <Link to='/profile'>
                     <img className="size-[32px] lg:hidden block" src={avatar} alt="" />
                 </Link>

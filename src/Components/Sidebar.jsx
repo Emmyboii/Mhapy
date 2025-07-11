@@ -20,7 +20,7 @@ const Sidebar = ({ setApi }) => {
     const [hoveredSetting, setHoveredSetting] = useState(null);
 
     const mainMenu = [
-        { item: 'Dashboard', image: dashboard, image2: dashboard2, path: '/' },
+        { item: 'Dashboard', image: dashboard, image2: dashboard2, path: '/dashboard' },
         { item: 'Therapist', image: therapist, image2: therapist, path: '/therapist' },
         { item: 'Calender', image: calender, image2: calender, path: '/calender' },
         { item: 'Notes', image: notes, image2: notes, path: '/notes' },
@@ -47,7 +47,7 @@ const Sidebar = ({ setApi }) => {
                         <div className='flex flex-col gap-4 mt-4'>
                             {mainMenu.map(({ item, image, image2, path }) => {
 
-                                const isActive = location.pathname === path;
+                                const isActive = location.pathname.startsWith(path);
                                 const isHovered = hoveredSetting === path;
 
                                 return (
@@ -59,7 +59,7 @@ const Sidebar = ({ setApi }) => {
                                         <div
                                             onMouseEnter={() => setHoveredSetting(path)}
                                             onMouseLeave={() => setHoveredSetting(null)}
-                                            className={`flex py-[10px] px-5 rounded-[10px] gap-3 text-[16px] hover:bg-[#44189080] hover:text-[#ffffff] text-[#25252580] ${location.pathname === path ? 'bg-[#44189080] text-white' : ''}`}>
+                                            className={`flex py-[10px] px-5 rounded-[10px] gap-3 text-[16px] hover:bg-[#44189080] hover:text-[#ffffff] text-[#25252580] ${location.pathname.startsWith(path) ? 'bg-[#44189080] text-white' : ''}`}>
                                             <img src={isActive || isHovered ? image2 : image} alt="" />
                                             {item}
                                         </div>

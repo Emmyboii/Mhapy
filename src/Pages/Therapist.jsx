@@ -38,7 +38,7 @@ const Therapist = () => {
                     Find Team Member
                 </p>
             </div>
-            {therapist === 'Team Member' ? (
+            {therapist === 'Find Team Member' ? (
                 <div className='border border-[#00000033] pt-9 pb-[50px] flex flex-col gap-8 px-[23px] rounded-[10px]'>
                     <div className='flex md:flex-row w-full gap-4 md:gap-0 flex-col items-center justify-between'>
                         <div className='flex justify-between items-center w-full'>
@@ -51,7 +51,7 @@ const Therapist = () => {
                                     type="text"
                                     name=""
                                     id=""
-                                    placeholder="Search client"
+                                    placeholder="Search therapist"
                                 />
                                 <FiSearch className="absolute sm:right-9 right-5 text-[#94A2BC] size-5 font-bold" />
                             </div>

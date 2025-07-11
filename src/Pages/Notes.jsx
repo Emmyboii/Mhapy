@@ -1,75 +1,78 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useState } from 'react'
 // import Slider from "react-slick";
 // import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
 import AllNotes from '../Components/AllNotes';
-import EditOrAddNote from '../Components/EditOrAddNote';
 import MiniNote from '../Components/MiniNote';
-import { useLocation } from 'react-router-dom';
-import { useNavigationType } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
+// import { useNavigationType } from 'react-router-dom';
 import RecentlyDeleted from '../Components/RecentlyDeleted';
 import NoteCategory from '../Components/NoteCategory';
 import Favourites from '../Components/Favourites';
+import EditNote from '../Components/EditNote';
+import AddNote from '../Components/AddNote';
 
 const Notes = () => {
 
-    const location = useLocation();
-    const navigationType = useNavigationType();
-    const isReload = useMemo(() => {
-        return performance.getEntriesByType("navigation")[0]?.type === "reload";
-    }, []);
+    const navigate = useNavigate()
+
+    // const location = useLocation();
+    // const navigationType = useNavigationType();
+    // const isReload = useMemo(() => {
+    //     return performance.getEntriesByType("navigation")[0]?.type === "reload";
+    // }, []);
 
     const [noteFrame, setNoteFrame] = useState(() => {
         return localStorage.getItem('noteFrame') || 'note'
     })
 
-    const [addNotes, setAddNotes] = useState(() => {
-        const stored = localStorage.getItem('addOrEditNote');
-        return stored ? JSON.parse(stored) : false;
-    })
+    // const [addNotes, setAddNotes] = useState(() => {
+    //     const stored = localStorage.getItem('addOrEditNote');
+    //     return stored ? JSON.parse(stored) : false;
+    // })
 
-    const [notes, setNotes] = useState(() => {
-        return localStorage.getItem('allOrDeleted') || ''
-    })
+    // const [notes, setNotes] = useState(() => {
+    //     return localStorage.getItem('allOrDeleted') || ''
+    // })
 
-    useEffect(() => {
-        localStorage.setItem('noteFrame', noteFrame);
-    }, [noteFrame]);
+    // useEffect(() => {
+    //     localStorage.setItem('noteFrame', noteFrame);
+    // }, [noteFrame]);
 
-    useEffect(() => {
-        localStorage.setItem('allOrDeleted', notes);
-    }, [notes]);
+    // useEffect(() => {
+    //     localStorage.setItem('allOrDeleted', notes);
+    // }, [notes]);
 
-    useEffect(() => {
-        const resetNotes = () => {
-            localStorage.setItem('allOrDeleted', '');
-            setNotes('');
-            window.scrollTo(0, 0);
-        };
+    // useEffect(() => {
+    //     const resetNotes = () => {
+    //         localStorage.setItem('allOrDeleted', '');
+    //         setNotes('');
+    //         window.scrollTo(0, 0);
+    //     };
 
-        const restoreNotes = () => {
-            localStorage.setItem('allOrDeleted', notes);
-            setNotes(notes);
-            window.scrollTo(0, 0);
-        };
+    //     const restoreNotes = () => {
+    //         localStorage.setItem('allOrDeleted', notes);
+    //         setNotes(notes);
+    //         window.scrollTo(0, 0);
+    //     };
 
-        // Browser/mobile back button
-        if (!isReload && location.pathname === '/notes' && navigationType === 'POP') {
-            if (notes === '' || !addNotes) resetNotes();
-            else if (notes === 'all' || notes === 'deleted') restoreNotes();
-        }
+    //     // Browser/mobile back button
+    //     if (!isReload && location.pathname === '/notes' && navigationType === 'POP') {
+    //         if (notes === '' || !addNotes) resetNotes();
+    //         else if (notes === 'all' || notes === 'deleted') restoreNotes();
+    //     }
 
-        // Desktop backspace key
-        const handleBackspace = (e) => {
-            if (e.key === 'Backspace' && location.pathname === '/notes') {
-                if (notes === '' || !addNotes) resetNotes();
-                else if (notes === 'all' || notes === 'deleted') restoreNotes();
-            }
-        };
+    //     // Desktop backspace key
+    //     const handleBackspace = (e) => {
+    //         if (e.key === 'Backspace' && location.pathname === '/notes') {
+    //             if (notes === '' || !addNotes) resetNotes();
+    //             else if (notes === 'all' || notes === 'deleted') restoreNotes();
+    //         }
+    //     };
 
-        window.addEventListener('keydown', handleBackspace);
-        return () => window.removeEventListener('keydown', handleBackspace);
-    }, [location, navigationType, isReload, notes, setNotes, addNotes]);
+    //     window.addEventListener('keydown', handleBackspace);
+    //     return () => window.removeEventListener('keydown', handleBackspace);
+    // }, [location, navigationType, isReload, notes, setNotes, addNotes]);
 
     // const setttings = {
     //     dot: false,
@@ -87,10 +90,9 @@ const Notes = () => {
                 <p
                     className={`cursor-pointer py-2 px-5 ${noteFrame === 'note' ? 'bg-white rounded-lg' : ''}`}
                     onClick={() => {
+                        navigate('/notes')
                         localStorage.setItem('noteFrame', 'note')
                         setNoteFrame('note')
-                        setAddNotes(false)
-                        localStorage.setItem('addOrEditNote', JSON.stringify(false))
                     }}
                 >
                     Notes
@@ -98,6 +100,7 @@ const Notes = () => {
                 <p
                     className={`cursor-pointer py-2 px-5 ${noteFrame === 'category' ? 'bg-white rounded-lg' : ''}`}
                     onClick={() => {
+                        navigate('/notes')
                         localStorage.setItem('noteFrame', 'category')
                         setNoteFrame('category')
                     }}
@@ -107,6 +110,7 @@ const Notes = () => {
                 <p
                     className={`cursor-pointer py-2 px-5 ${noteFrame === 'favorite' ? 'bg-white rounded-lg' : ''}`}
                     onClick={() => {
+                        navigate('/notes')
                         localStorage.setItem('noteFrame', 'favorite')
                         setNoteFrame('favorite')
                     }}
@@ -114,40 +118,29 @@ const Notes = () => {
                     Favorites
                 </p>
             </div>
-            {noteFrame === 'note' ? (
-                <div>
-                    {notes === 'all' ? (
-                        <>
-                            {addNotes ? (
-                                <EditOrAddNote setNotes={setNotes} setAddNotes={setAddNotes} />
-                            ) : (
-                                <AllNotes setAddNotes={setAddNotes} />
-                            )}
-                        </>
-                    ) : notes === 'deleted' ? (
-                        <>
-                            {addNotes ? (
-                                <EditOrAddNote setNotes={setNotes} setAddNotes={setAddNotes} />
-                            ) : (
-                                <RecentlyDeleted setAddNotes={setAddNotes} />
-                            )}
-                        </>
-                    ) : (
-                        <>
-                            {addNotes ? (
-                                <EditOrAddNote setNotes={setNotes} setAddNotes={setAddNotes} />
-                            ) : (
-                                <MiniNote setNotes={setNotes} setAddNotes={setAddNotes} />
-                            )}
-                        </>
-                    )}
-                </div>
-            ) : noteFrame === 'category' ? (
-                <NoteCategory />
-            ) : (
-                <Favourites setAddNotes={setAddNotes} />
 
+            {noteFrame === 'note' ? (
+                <Routes>
+                    <Route index element={<MiniNote />} />
+                    <Route path='allnotes' element={<AllNotes />} />
+                    <Route path='editnote' element={<EditNote />} />
+                    <Route path='newnote' element={<AddNote />} />
+                    <Route path='deleted' element={<RecentlyDeleted />} />
+                </Routes>
+            ) : noteFrame === 'category' ? (
+                <Routes>
+                    <Route index element={<NoteCategory />} />
+                </Routes>
+            ) : (
+                <Routes>
+                    <Route index element={<Favourites />} />
+                    <Route path='editnote' element={<EditNote />} />
+                    <Route path='newnote' element={<AddNote />} />
+                </Routes>
             )}
+            <Routes>
+
+            </Routes>
         </div>
     )
 }

@@ -1,30 +1,86 @@
 import { useEffect, useState } from 'react';
 import google from '../Images/google.svg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
-    const [signUpData, setSignUpDate] = useState({
+    const navigate = useNavigate()
+
+    const [logIn, setLogInData] = useState({
         email: '',
         password: ''
     })
+
     const [allInputBoxFilled, setAllInputBoxFilled] = useState(false)
-    // const [submitting, setSubmitting] = useState(false)
+    const [submitting, setSubmitting] = useState(false)
+    const [status, setStatus] = useState({ message: '', type: '' })
+    const [modal, setModal] = useState(false)
+
 
     useEffect(() => {
-        if (signUpData.email && signUpData.password) {
+        if (logIn.email && logIn.password) {
             setAllInputBoxFilled(true)
         } else {
             setAllInputBoxFilled(false)
         }
-    }, [signUpData])
+    }, [logIn])
 
     const handleInputChange = (e) => {
         const { name, value } = e.target
-        setSignUpDate(prev => ({
+        setLogInData(prev => ({
             ...prev,
             [name]: value
         }))
     }
+
+    const login = async (e) => {
+        e.preventDefault()
+
+        setSubmitting(true)
+
+        try {
+            const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/login`, {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(logIn)
+            })
+
+            const data = await res.json()
+
+            const token = data.token;
+
+            if (!res.ok) {
+                setModal(true)
+                setStatus({ message: data.non_field_errors, type: 'error' })
+            } else {
+                console.log('Log in successful:', data);
+                setModal(true)
+                setStatus({ message: 'Login Successful', type: 'success' })
+                setTimeout(() => {
+                    navigate('/');
+                }, 1850);
+                localStorage.setItem('token', token);
+                localStorage.setItem('tokenTimestamp', Date.now());
+            }
+        } catch (error) {
+            console.error('Log in error:', error);
+        } finally {
+            setSubmitting(false)
+        }
+    }
+
+    useEffect(() => {
+        if (modal) {
+            const timer = setTimeout(() => {
+                setModal(false);
+                setStatus({ message: '', type: '' });
+            }, 3500);
+
+            return () => clearTimeout(timer);
+        }
+    }, [modal]);
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-white">
@@ -32,7 +88,7 @@ const Login = () => {
                 <div className='sp:w-[441px] w-[353px] gap-5 flex flex-col items-center justify-center'>
                     <h1 className='sp:text-[40px] text-[32px] font-medium text-[#252525]'>Log in</h1>
                     <p className='text-[#25252580] text-[15px] mt-[-10px] font-normal'>Already have an account?
-                        <Link to='/signup'>
+                        <Link to='/auth/signup'>
                             <span className='text-[16px] ml-2 underline cursor-pointer text-[#4285F4]'>Create account</span>
                         </Link>
                     </p>
@@ -43,31 +99,38 @@ const Login = () => {
                     <div className='text-[#55555580] flex gap-4 items-center'>
                         <hr className='w-[130px] border-[1.33px] border-[#55555580] mt-1' /><span className='text-[16px] font-medium'>or</span> <hr className='w-[130px] mt-1 border-[#55555580] border-[1.33px]' />
                     </div>
-                    <form className='w-full gap-6 flex flex-col'>
+                    <form onSubmit={login} className='w-full gap-6 flex flex-col'>
+                        {modal && (
+                            <div className={`${status.type === 'error' ? 'bg-red-500' : 'bg-green-500'} text-white absolute top-[170px] z-50 right-0 p-3 rounded-md flex items-center text-center justify-between`}>
+                                <p className='text-[16px] 3xl:text-[22px] font-bold'>
+                                    {status.message}
+                                </p>
+                            </div>
+                        )}
                         <input
                             className='border-[1.1px] text-[#252525] text-[16px] placeholder:text-[#25252580] font-medium outline-none border-[#25252580] p-3 gap-2 rounded-[2px] w-full'
-                            type="text"
+                            type="email"
                             name="email"
-                            value={signUpData.email}
+                            value={logIn.email}
                             onChange={handleInputChange}
                             id=""
                             placeholder='Email'
                         />
                         <input
                             className='border-[1.1px] text-[#252525] text-[16px] placeholder:text-[#25252580] font-medium outline-none border-[#25252580] p-3 gap-2 rounded-[2px] w-full'
-                            type="text"
+                            type="password"
                             name="password"
-                            value={signUpData.password}
+                            value={logIn.password}
                             onChange={handleInputChange}
                             id=""
                             placeholder='Enter your password'
                         />
                         <button
-                            className={`text-white rounded-md p-3 gap-2 outline-none w-full ${allInputBoxFilled ? 'bg-[#441890] hover:bg-[#441890CC]' : 'bg-[#4418904D]'}`}
+                            className={`text-white rounded-md p-3 gap-2 outline-none w-full ${allInputBoxFilled && !submitting ? 'bg-[#441890] hover:bg-[#441890CC] cursor-pointer' : allInputBoxFilled && submitting ? 'bg-[#4418904D] cursor-not-allowed' : 'bg-[#4418904D] cursor-not-allowed'}`}
                             type='submit'
-                            disabled={!allInputBoxFilled}
+                            disabled={!allInputBoxFilled || submitting}
                         >
-                            Continue
+                            {submitting ? 'Loading...' : 'Continue'}
                         </button>
                         <p className='sp:text-[16px] underline text-[14px] font-medium w-full text-[#4285F4]'>Forgot your password?</p>
                     </form>

@@ -1,9 +1,28 @@
+import { useEffect, useState } from 'react';
 import avatar from '../Images/avatar.svg';
 import { BsThreeDots } from 'react-icons/bs'
 import { FiSearch } from 'react-icons/fi'
 import { IoMdAdd } from "react-icons/io";
+import { Link, useNavigate } from 'react-router-dom';
 
 const Homework = () => {
+
+    const navigate = useNavigate()
+
+    const [smScreens, setSmScreens] = useState(window.innerWidth < 550)
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (smScreens) {
+                setSmScreens(window.innerWidth < 550)
+            }
+        }
+
+        window.addEventListener('resize', handleResize)
+
+        return () => window.removeEventListener('resize', handleResize)
+    }, [smScreens])
+
     return (
         <div>
             <h1 className="text-[18px] text-[#252525] mk:hidden block font-medium mb-4">Homework</h1>
@@ -27,10 +46,13 @@ const Homework = () => {
                             />
                             <FiSearch className="absolute sm:right-9 right-5 text-[#94A2BC] size-5 font-bold" />
                         </div>
-                        <div className="bg-[#441890] hover:bg-[#441890CC] mf:flex items-center gap-2 hidden w-full cursor-pointer text-white py-[11px] px-4 rounded-md">
-                            <IoMdAdd className='text-[30px] sm:hidden block' />
-                            Create Homework
-                        </div>
+                        <Link to='createhomework' className='w-full'>
+                            <div className="bg-[#441890] hover:bg-[#441890CC] mf:flex items-center gap-2 hidden w-full cursor-pointer text-white py-[11px] px-4 rounded-md">
+                                <IoMdAdd className='text-[30px] sm:hidden block' />
+                                Create Homework
+                            </div>
+                        </Link>
+
                     </div>
                 </div>
                 <div className="sd:flex hidden items-center sm:text-[16px] text-[14px] bg-[#F6F6F6] gap-28 sd:gap-0 text-[#25252580] sm:p-[9px] p-[5px] rounded-[10px] w-full justify-between">
@@ -44,7 +66,13 @@ const Homework = () => {
                         <BsThreeDots className="text-[#25252580]" />
                     </div>
                 </div>
-                <div className='flex w-full items-center justify-between gap-24 sd:gap-0 sm:p-[9px] p-1'>
+                <div
+                    onClick={() => {
+                        if (smScreens) {
+                            navigate('/clientHomework/1')
+                        }
+                    }}
+                    className='flex w-full items-center justify-between gap-24 sd:gap-0 sm:p-[9px] p-1'>
                     <div className="flex gap-[14px] items-center w-full">
                         <img className="sd:size-[50px] size-[25px]" src={avatar} alt="" />
                         <div className="flex flex-col truncate gap-1">
@@ -63,7 +91,9 @@ const Homework = () => {
                         <p className="text-[#25252580] text-[16px]">11:00pm</p>
                     </div>
                     <div className="text-[#25252580] py-2 px-5 sd:block hidden">
-                        <BsThreeDots className='cursor-pointer' />
+                        <Link to='/clientHomework/1'>
+                            <BsThreeDots className='cursor-pointer' />
+                        </Link>
                     </div>
 
                 </div>

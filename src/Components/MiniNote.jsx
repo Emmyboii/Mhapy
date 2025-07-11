@@ -1,7 +1,11 @@
+import { useNavigate } from 'react-router-dom';
 import NoteEdit from '../Images/noteedit.svg';
 import { BsThreeDots } from 'react-icons/bs';
 
-const MiniNote = ({ setAddNotes, setNotes }) => {
+const MiniNote = () => {
+
+    const navigate = useNavigate()
+
     return (
         <div className='flex flex-col gap-[30px]'>
             <div className='flex flex-col gap-6'>
@@ -9,8 +13,7 @@ const MiniNote = ({ setAddNotes, setNotes }) => {
                     <p className='text-[24px] text-[#252525] font-[450]'>Previous 7 days</p>
                     <p
                         onClick={() => {
-                            setNotes('all')
-                            localStorage.setItem('allOrDeleted', 'all')
+                            navigate('/notes/allnotes')
                             window.scrollTo(0, 0)
                         }}
                         className='text-[16px] text-[#25252580] font-[450] mr-12 underline cursor-pointer'>All Notes</p>
@@ -52,8 +55,7 @@ const MiniNote = ({ setAddNotes, setNotes }) => {
                             <p className='sm:text-[13px] text-[10px] text-[#25252580] font-normal'>12:30 PM, Monday</p>
                             <img
                                 onClick={() => {
-                                    setAddNotes(true)
-                                    localStorage.setItem('addOrEditNote', JSON.stringify(true))
+                                    navigate('/notes/editnote')
                                     window.scrollTo(0, 0)
                                 }}
                                 className='size-5 sm:block cursor-pointer hidden' src={NoteEdit} alt="" />
@@ -79,11 +81,10 @@ const MiniNote = ({ setAddNotes, setNotes }) => {
                     </div>
                     <div
                         onClick={() => {
-                            setAddNotes(true)
-                            localStorage.setItem('addOrEditNote', JSON.stringify(true))
+                            navigate('/notes/newnote')
                             window.scrollTo(0, 0)
                         }}
-                        className='border-dashed self-center mx-auto sm:py-[43px] cursor-pointer py-[28px] sm:w-[150px] w-[103px] sm:px-10 px-[20px] flex flex-col text-center items-center justify-center gap-2 rounded-2xl border-[#2525254D] border-[1.4px]'>
+                        className='border-dashed self-center mx-auto sm:py-[43px] cursor-pointer py-[28px] sm:w-[150px] w-[103px] sm:px-7 px-[20px] flex flex-col text-center items-center justify-center gap-2 rounded-2xl border-[#2525254D] border-[1.4px]'>
                         <img className='size-5' src={NoteEdit} alt="" />
                         <p className='text-[#252525CC] sm:text-[16px] text-[12px] font-[450]'>New Note</p>
                     </div>
@@ -94,8 +95,7 @@ const MiniNote = ({ setAddNotes, setNotes }) => {
                     <p className='text-[24px] text-[#252525] font-[450]'>Recently deleted</p>
                     <p
                         onClick={() => {
-                            setNotes('deleted')
-                            localStorage.setItem('allOrDeleted', 'deleted')
+                            navigate('/notes/deleted')
                             window.scrollTo(0, 0)
                         }}
                         className='text-[16px] text-[#25252580] font-[450] underline cursor-pointer'>See All</p>
@@ -137,8 +137,7 @@ const MiniNote = ({ setAddNotes, setNotes }) => {
                             <p className='sm:text-[13px] text-[10px] text-[#25252580] font-normal'>12:30 PM, Monday</p>
                             <img
                                 onClick={() => {
-                                    setAddNotes(true)
-                                    localStorage.setItem('addOrEditNote', JSON.stringify(true))
+                                    navigate('/notes/editnote')
                                 }}
                                 className='size-5 sm:block cursor-pointer hidden' src={NoteEdit} alt="" />
                         </div>

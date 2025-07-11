@@ -1,8 +1,12 @@
 import { FiSearch } from 'react-icons/fi'
 import NoteEdit from '../Images/noteedit.svg';
 import { BsThreeDots } from 'react-icons/bs';
+import { useNavigate } from 'react-router-dom';
 
-const AllNotes = ({ setAddNotes }) => {
+const AllNotes = () => {
+
+    const navigate = useNavigate()
+
     return (
         <div className='flex flex-col gap-6'>
             <div className='flex sm:flex-row flex-col mq:gap-3 sm:gap-2 gap-1 sm:items-center justify-between'>
@@ -24,8 +28,8 @@ const AllNotes = ({ setAddNotes }) => {
             <div className='grid mq:grid-cols-4 sm:grid-cols-3 grid-cols-2 items-start sm:gap-[18px] gap-2'>
                 <div
                     onClick={() => {
-                        setAddNotes(true)
-                        localStorage.setItem('addOrEditNote', JSON.stringify(true))
+                        navigate('/notes/newnote')
+                        window.scrollTo(0, 0)
                     }}
                     className='border-dashed self-center mx-auto sm:py-[43px] cursor-pointer py-[28px] sm:w-[150px] w-[103px] sm:px-10 px-[20px] flex flex-col text-center items-center justify-center gap-2 rounded-2xl border-[#2525254D] border-[1.4px]'>
                     <img className='size-5' src={NoteEdit} alt="" />
@@ -66,8 +70,8 @@ const AllNotes = ({ setAddNotes }) => {
                         <p className='sm:text-[13px] text-[10px] text-[#25252580] font-normal'>12:30 PM, Monday</p>
                         <img
                             onClick={() => {
-                                setAddNotes(true)
-                                localStorage.setItem('addOrEditNote', JSON.stringify(true))
+                                navigate('/notes/editnote')
+                                window.scrollTo(0, 0)
                             }}
                             className='size-5 sm:block cursor-pointer hidden' src={NoteEdit} alt="" />
                     </div>

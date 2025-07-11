@@ -1,0 +1,36 @@
+ // const location = useLocation();
+    // const navigationType = useNavigationType();
+    // const isReload = useMemo(() => {
+    //     return performance.getEntriesByType("navigation")[0]?.type === "reload";
+    // }, []);
+   
+
+    // const [paymentMethod, setPaymentMethod] = useState(() => {
+    //     const stored = localStorage.getItem('paymentMethod');
+    //     return stored ? JSON.parse(stored) : false;
+    // })
+
+
+    // useEffect(() => {
+
+    //     if (!isReload && location.pathname === '/pricing' && navigationType === 'POP') {
+    //         localStorage.setItem('paymentMethod', JSON.stringify(false));
+    //         setPaymentMethod(false)
+    //         window.scrollTo(0, 0)
+    //     }
+
+    //     const handleBackspace = (e) => {
+    //         if (e.key === 'Backspace' && location.pathname === '/pricing' && !continueClicked) {
+    //             localStorage.setItem('paymentMethod', JSON.stringify(false));
+    //             setPaymentMethod(false)
+    //             window.scrollTo(0, 0)
+    //         }
+    //     };
+
+    //     window.addEventListener('keydown', handleBackspace);
+
+    //     return () => {
+    //         window.removeEventListener('keydown', handleBackspace);
+    //     };
+    // }, [location.pathname, continueClicked]);
+

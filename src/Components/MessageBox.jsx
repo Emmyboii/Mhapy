@@ -19,7 +19,7 @@ const MessageBox = ({ setMessageClicked }) => {
 
     return (
         <div className='w-full bg-[#F6F6F6]'>
-            <nav className='pr-3 sm:pl-10 pl-3 w-full sticky top-0 z-50 shadow-sm shadow-black/10 flex justify-between bg-white items-center'>
+            <nav className='pr-3 sm:pl-10 pl-3 w-full sticky top-0 z-30 shadow-sm shadow-black/10 flex justify-between bg-white items-center'>
                 <div className="flex gap-[14px] items-center py-2">
                     <HiMiniArrowLongLeft onClick={() => setMessageClicked(false)} className='size-5 sm:hidden block cursor-pointer' />
                     <img className="size-[50px]" src={avatar} alt="" />

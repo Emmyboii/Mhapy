@@ -75,10 +75,10 @@ const RecentlyDeleted = ({ setAddNotes }) => {
                     <div className='flex justify-between'>
                         <p className='sm:text-[13px] text-[10px] text-[#25252580] font-normal'>12:30 PM, Monday</p>
                         <img
-                            onClick={() => {
-                                setAddNotes(true)
-                                localStorage.setItem('addOrEditNote', JSON.stringify(true))
-                            }}
+                            // onClick={() => {
+                            //     setAddNotes(true)
+                            //     localStorage.setItem('addOrEditNote', JSON.stringify(true))
+                            // }}
                             className='size-5 sm:block cursor-pointer hidden' src={NoteEdit} alt="" />
                     </div>
                 </div>

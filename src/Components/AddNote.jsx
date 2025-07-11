@@ -11,43 +11,44 @@ import underline from '../Images/underline.svg';
 import Star from '../Images/Star.svg';
 import { FaCircle } from "react-icons/fa6";
 import { BsThreeDots } from 'react-icons/bs';
-import { useEffect, useState, useMemo } from 'react';
-import { useLocation } from 'react-router-dom';
-import { useNavigationType } from 'react-router-dom';
+import { useState } from 'react';
+// import { useEffect, useState, useMemo } from 'react';
+// import { useLocation } from 'react-router-dom';
+// import { useNavigationType } from 'react-router-dom';
 
-const EditOrAddNote = ({ setAddNotes }) => {
+const AddNote = ({ setAddNotes }) => {
 
-    const location = useLocation();
-    const navigationType = useNavigationType();
-    const isReload = useMemo(() => {
-        return performance.getEntriesByType("navigation")[0]?.type === "reload";
-    }, []);
+    // const location = useLocation();
+    // const navigationType = useNavigationType();
+    // const isReload = useMemo(() => {
+    //     return performance.getEntriesByType("navigation")[0]?.type === "reload";
+    // }, []);
     const [bg, setBg] = useState('#ffffff')
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        // Handle physical/browser back button (mobile and desktop)
-        if (!isReload && location.pathname === '/notes' && navigationType === 'POP') {
-            setAddNotes(false)
-            localStorage.setItem('addOrEditNote', JSON.stringify(false))
-            window.scrollTo(0, 0);
-        }
+    //     // Handle physical/browser back button (mobile and desktop)
+    //     if (!isReload && location.pathname === '/notes' && navigationType === 'POP') {
+    //         setAddNotes(false)
+    //         localStorage.setItem('addOrEditNote', JSON.stringify(false))
+    //         window.scrollTo(0, 0);
+    //     }
 
-        // Handle Backspace key manually (desktop)
-        const handleBackspace = (e) => {
-            if (e.key === 'Backspace' && location.pathname === '/notes') {
-                setAddNotes(false)
-                localStorage.setItem('addOrEditNote', JSON.stringify(false))
-                window.scrollTo(0, 0);
-            }
-        };
+    //     // Handle Backspace key manually (desktop)
+    //     const handleBackspace = (e) => {
+    //         if (e.key === 'Backspace' && location.pathname === '/notes') {
+    //             setAddNotes(false)
+    //             localStorage.setItem('addOrEditNote', JSON.stringify(false))
+    //             window.scrollTo(0, 0);
+    //         }
+    //     };
 
-        window.addEventListener('keydown', handleBackspace);
+    //     window.addEventListener('keydown', handleBackspace);
 
-        return () => {
-            window.removeEventListener('keydown', handleBackspace);
-        };
-    }, [location, navigationType, isReload]);
+    //     return () => {
+    //         window.removeEventListener('keydown', handleBackspace);
+    //     };
+    // }, [location, navigationType, isReload]);
 
     const handleKeyDown = (e) => {
         if (e.key === 'Enter') {
@@ -117,4 +118,4 @@ const EditOrAddNote = ({ setAddNotes }) => {
     )
 }
 
-export default EditOrAddNote
+export default AddNote

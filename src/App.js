@@ -16,6 +16,11 @@ import Notes from './Pages/Notes';
 import API from './Pages/API';
 import Settings from './Pages/Settings';
 import Homework from './Pages/Homework';
+import ClientHomework from './Components/ClientHomework';
+import CreateHomework from './Components/CreateHomework';
+import PublicRoute from './Components/PubilcRoute';
+import ProtectedRoutes from './Components/ProtectedRoutes';
+import AddTeamMember from './Pages/AddTeamMember';
 
 function App() {
 
@@ -72,30 +77,37 @@ function App() {
 
       )}
       <div className={hideSidebar ? 'w-full' : 'w-full'}>
-        <div onClick={() => setOpenSidebar(!openSidebar)} className={openSidebar ? 'bg-black/30 w-full z-30 absolute top-0 min-h-screen' : ''}></div>
+        <div onClick={() => setOpenSidebar(!openSidebar)} className={openSidebar ? 'bg-black/30 w-full z-40 absolute top-0 min-h-screen' : ''}></div>
         {!hideSidebar && (
           <NavBar setNotification={setNotification} notification={notification} dashboardFrame={dashboardFrame} setOpenSidebar={setOpenSidebar} />
         )}
         {location.pathname !== '/message' ? (
-          <div className="py-6 sm:px-[27px] px-3 pb-10">
+          <div onClick={() => setNotification(false)} className="sm:py-6 py-0 sm:px-[27px] px-3 pb-10">
             <Routes>
-              <Route path="/" element={<Dashboard setOpenSidebar={setOpenSidebar} dashboardFrame={dashboardFrame} setDashboardFrame={setDashboardFrame} />} />
-              <Route path="/therapist" element={<Therapist />} />
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/pricing" element={<Pricing />} />
-              <Route path="/calender" element={<Calender />} />
-              <Route path="/notes" element={<Notes />} />
-              <Route path="/settings" element={<Settings />} />
-              <Route path="/homework" element={<Homework />} />
-              <Route path="/clients/:id" element={<ClientInfo setOpenSidebar={setOpenSidebar} />} />
-              <Route path="/auth/*" element={<Authentication />} />
+              <Route path="/" element={<Navigate to="/dashboard" replace />} />
+
+              <Route element={<ProtectedRoutes />}>
+                <Route path="/dashboard" element={<Dashboard setOpenSidebar={setOpenSidebar} dashboardFrame={dashboardFrame} setDashboardFrame={setDashboardFrame} />} />
+                <Route path="/therapist" element={<Therapist />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/pricing/*" element={<Pricing />} />
+                <Route path="/calender" element={<Calender />} />
+                <Route path="/notes/*" element={<Notes />} />
+                <Route path="/add-team-members" element={<AddTeamMember />} />
+                <Route path="/settings" element={<Settings />} />
+                <Route path="/homework" element={<Homework />} />
+                <Route path="/clients/:id" element={<ClientInfo />} />
+                <Route path="/clientHomework/:id" element={<ClientHomework />} />
+                <Route path="homework/createhomework" element={<CreateHomework />} />
+              </Route>
+              <Route path="/auth/*" element={<PublicRoute><Authentication /></PublicRoute>} />
               <Route path="/404" element={<NotFound />} />
               <Route path="*" element={<Navigate to="/404" />} />
             </Routes>
             <API setApi={setApi} api={api} />
           </div>
         ) : (
-          <div>
+          <div onClick={() => setNotification(false)}>
             <Routes>
               <Route path="/message" element={<Message />} />
             </Routes>
