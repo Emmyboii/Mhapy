@@ -19,11 +19,11 @@ const SMSidebar = ({ openSidebar, setOpenSidebar, setApi }) => {
 
     const mainMenu = [
         { item: 'Dashboard', image: dashboard, image2: dashboard2, path: '/' },
-        { item: 'Therapist', image: therapist, image2: therapist, path: '/therapist' },
-        { item: 'Calender', image: calender, image2: calender, path: '/calender' },
+        // { item: 'Therapist', image: therapist, image2: therapist, path: '/therapist' },
+        // { item: 'Calender', image: calender, image2: calender, path: '/calender' },
         { item: 'Notes', image: notes, image2: notes, path: '/notes' },
         { item: 'Message', image: message, image2: message, path: '/message' },
-        { item: 'Pricing', image: pricing, image2: pricing, path: '/pricing' },
+        // { item: 'Pricing', image: pricing, image2: pricing, path: '/pricing' },
     ]
 
     const general = [
@@ -67,7 +67,7 @@ const SMSidebar = ({ openSidebar, setOpenSidebar, setApi }) => {
                     </div>
                 </div>
 
-                <div className='mt-7'>
+                <div className='mt-'>
                     <p className='uppercase text-[16px] text-[#252525CC] font-medium'>General</p>
                     <div className='flex flex-col gap-4 mt-4'>
                         {general.map(({ item, image, image2, path, modal }) => {

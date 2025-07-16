@@ -86,7 +86,7 @@ const Notes = () => {
     return (
         <div>
             <h1 className="text-[18px] text-[#252525] mk:hidden block font-medium mb-4">Notes</h1>
-            <div className="flex items-center sm:gap-10 gap-3 mb-6 bg-[#F6F6F6] text-[#25252580] p-[9px] rounded-[10px] sm:w-[419px] w-full justify-between">
+            {/* <div className="flex items-center sm:gap-10 gap-3 mb-6 bg-[#F6F6F6] text-[#25252580] p-[9px] rounded-[10px] sm:w-[419px] w-full justify-between">
                 <p
                     className={`cursor-pointer py-2 px-5 ${noteFrame === 'note' ? 'bg-white rounded-lg' : ''}`}
                     onClick={() => {
@@ -117,7 +117,7 @@ const Notes = () => {
                 >
                     Favorites
                 </p>
-            </div>
+            </div> */}
 
             {noteFrame === 'note' ? (
                 <Routes>

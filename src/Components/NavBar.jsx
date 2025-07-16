@@ -12,7 +12,7 @@ const NavBar = ({ setNotification, notification, dashboardFrame, setOpenSidebar 
     const location = useLocation()
 
     const getTitle = () => {
-        if (location.pathname === '/') {
+        if (location.pathname === '/dashboard') {
             if (dashboardFrame === 'portal') return 'Hello John, welcome back!';
             if (dashboardFrame === 'client') return 'Dashboard';
             if (dashboardFrame === 'healthProfile') return 'Dashboard';
@@ -75,11 +75,11 @@ const NavBar = ({ setNotification, notification, dashboardFrame, setOpenSidebar 
                 <div onClick={() => setNotification(!notification)} className="bg-[#F6F6F6] cursor-pointer rounded-[84px]">
                     <FaRegBell className="size-10 p-[10px] text-[#23235F]" />
                 </div>
-                <Link to='/add-team-members'>
+                {/* <Link to='/add-team-members'>
                     <div className="bg-[#441890] hover:bg-[#441890CC] mf:block hidden cursor-pointer text-white py-[11px] px-4 rounded-md">
                         Add team member
                     </div>
-                </Link>
+                </Link> */}
                 <Link to='/profile'>
                     <img className="size-[32px] lg:hidden block" src={avatar} alt="" />
                 </Link>

@@ -12,6 +12,8 @@ const ClientDashboard = ({ dashboardFrame }) => {
 
     const [smScreens, setSmScreens] = useState(window.innerWidth < 550)
 
+    const [clients, setClients] = useState([])
+
     useEffect(() => {
         const handleResize = () => {
             if (smScreens) {
@@ -64,6 +66,31 @@ const ClientDashboard = ({ dashboardFrame }) => {
         })
     }
 
+    const getClients = async () => {
+        const token = localStorage.getItem('token')
+
+        try {
+            const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/clients`, {
+                method: 'GET',
+                headers: {
+                    Authorization: `Token ${token}`,
+                    'Content-Type': 'application/json'
+                }
+            })
+
+            const data = await res.json()
+
+            setClients(data)
+
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
+    useEffect(() => {
+        getClients()
+    }, [])
+
 
     return (
         <>
@@ -105,11 +132,44 @@ const ClientDashboard = ({ dashboardFrame }) => {
                             <div className='mq:flex hidden items-center justify-center w-full'>
                                 <p className='py-2 sm:px-5 px-2'>Status</p>
                             </div>
-                            <p className='py-2 sm:px-5 px-2 w-full'>Last seen</p>
+                            <p className='py-2 sm:px-5 px-2 w-full'>Phone number</p>
                             <div className='py-2 px-5 sd:block hidden'>
                                 <BsThreeDots className="text-[#25252580]" />
                             </div>
                         </div>
+                        {clients.map((i, client) => (
+                            <div
+                                key={i}
+                                onClick={() => {
+                                    if (smScreens) {
+                                        navigate('/clients/1')
+                                    }
+                                }}
+                                className='flex w-full sd:cursor-auto cursor-pointer items-center justify-between sk:gap-[100px] sd:gap-0 p-[9px]'>
+                                <div className="flex gap-[14px] items-center py-2 sd:w-full w-auto truncate">
+                                    <img className="sd:size-[50px] size-[25px]" src={client.image} alt="" />
+                                    <div className="flex flex-col gap-1">
+                                        <p className="sd:text-[16px] text-[14px] truncate text-[#000000] font-medium">{client.first_name} {client.last_name}</p>
+                                        {/* <p className="sd:text-[16px] text-[14px] truncate text-[#25252580] font-[450]">Accountant</p> */}
+                                    </div>
+                                </div>
+                                <div className='w-full truncate sm:block hidden'>
+                                    <p className='py-2 px-5 truncate text-[#25252580]'>{client.email}</p>
+                                </div>
+                                <div className='w-full truncate mq:flex hidden items-center justify-center'>
+                                    <p className="text-[12px] font-normal py-[1px] w-[50px] px-[6px] flex items-center justify-center rounded-xl text-[#0FA726] bg-[#0FA7261A] border-[0.8px] border-[#0FA726]">Active</p>
+                                </div>
+                                <div className="flex flex-col truncate gap-2 py-2 px-5 sd:w-full w-auto">
+                                    <p className="text-[16px] text-[#252525]">{client.phone}</p>
+                                    {/* <p className="text-[#25252580] text-[16px]">11:00pm</p> */}
+                                </div>
+                                <div className="text-[#25252580] py-2 px-5 sd:block hidden">
+                                    <Link to='/clients/1'>
+                                        <BsThreeDots className='cursor-pointer' />
+                                    </Link>
+                                </div>
+                            </div>
+                        ))}
                         <div
                             onClick={() => {
                                 if (smScreens) {

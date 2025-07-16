@@ -67,7 +67,7 @@ const Dashboard = ({ dashboardFrame, setDashboardFrame }) => {
                     ) : (
                         <h1 className="text-[24px] text-[#252525] font-medium mb-4">Health Profile</h1>
                     )}
-                    <div className="flex items-center sm:gap-10 gap-3 mb-6 bg-[#F6F6F6] text-[#25252580] p-[9px] rounded-[10px] sm:w-[419px] w-full justify-between">
+                    <div className="flex items-center sm:gap-10 gap-3 mb-6 bg-[#F6F6F6] text-[#25252580] p-[9px] rounded-[10px] sm:w-[240px] w-full justify-between">
                         <p
                             className={`cursor-pointer py-2 px-5 ${dashboardFrame === 'portal' ? 'bg-white rounded-lg' : ''}`}
                             onClick={() => {
@@ -86,7 +86,7 @@ const Dashboard = ({ dashboardFrame, setDashboardFrame }) => {
                         >
                             Client
                         </p>
-                        <p
+                        {/* <p
                          className={`cursor-pointer py-2 px-5 ${dashboardFrame === 'healthProfile' ? 'bg-white rounded-lg' : ''}`}
                             onClick={() => {
                                 localStorage.setItem('dashboardFrame', 'healthProfile')
@@ -94,7 +94,7 @@ const Dashboard = ({ dashboardFrame, setDashboardFrame }) => {
                             }}
                         >
                             Health Profile
-                        </p>
+                        </p> */}
                     </div>
                 </div>
                 {dashboardFrame === 'portal' ? (

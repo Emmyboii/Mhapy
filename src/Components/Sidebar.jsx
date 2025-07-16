@@ -21,11 +21,11 @@ const Sidebar = ({ setApi }) => {
 
     const mainMenu = [
         { item: 'Dashboard', image: dashboard, image2: dashboard2, path: '/dashboard' },
-        { item: 'Therapist', image: therapist, image2: therapist, path: '/therapist' },
-        { item: 'Calender', image: calender, image2: calender, path: '/calender' },
+        // { item: 'Therapist', image: therapist, image2: therapist, path: '/therapist' },
+        // { item: 'Calender', image: calender, image2: calender, path: '/calender' },
         { item: 'Notes', image: notes, image2: notes, path: '/notes' },
         { item: 'Message', image: message, image2: message, path: '/message' },
-        { item: 'Pricing', image: pricing, image2: pricing, path: '/pricing' },
+        // { item: 'Pricing', image: pricing, image2: pricing, path: '/pricing' },
     ]
 
     const general = [
@@ -35,12 +35,12 @@ const Sidebar = ({ setApi }) => {
     ]
 
     return (
-        <div className='w-[260px] xl:block hidden p-5 sticky top-0 hide-scrollbar overflow-y-scroll h-screen bg-[#44189008]'>
+        <div className='w-[260px] xl:block hidden p-5 sticky top-0 hide-scrollbar overflow-y-scrol h-screen bg-[#44189008]'>
             <Link className="flex items-center gap-1" to='/'>
                 <img className="size-[30px]" src={Logo} alt="Logo" />
                 <p className="text-[#441890] font-bold text-[27px]">mhapy</p>
             </Link>
-            <div className='flex flex-col justify-between h-full gap-[364px]'>
+            <div className='flex flex-col justify-between h-full gap-[36px]'>
                 <div className='flex flex-col gap-[30px]'>
                     <div className='mt-7'>
                        <p className='uppercase text-[16px] text-[#252525CC] font-medium'>Main Menu</p>
@@ -69,7 +69,7 @@ const Sidebar = ({ setApi }) => {
                         </div>
                     </div>
 
-                    <div className='mt-7'>
+                    <div className='mt-'>
                         <p className='uppercase text-[16px] text-[#252525CC] font-medium'>General</p>
                         <div className='flex flex-col gap-4 mt-4'>
                             {general.map(({ item, image, image2, path, modal }) => {

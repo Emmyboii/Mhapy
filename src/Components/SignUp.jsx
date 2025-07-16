@@ -11,7 +11,8 @@ const SignUp = () => {
         first_name: '',
         last_name: '',
         email: '',
-        password: ''
+        password: '',
+        is_therapist: true
     })
 
     const [allInputBoxFilled, setAllInputBoxFilled] = useState(false)
@@ -97,16 +98,16 @@ const SignUp = () => {
                             <span className='text-[16px] ml-2 underline cursor-pointer text-[#4285F4]'>Log in</span>
                         </Link>
                     </p>
-                    <div className='flex w-full rounded cursor-pointer items-center justify-center border-[1.38px] border-[#4285F4] py-3 px-[22px] gap-3'>
+                    {/* <div className='flex w-full rounded cursor-pointer items-center justify-center border-[1.38px] border-[#4285F4] py-3 px-[22px] gap-3'>
                         <img src={google} alt="" />
                         <p className='text-[#4285F4] font-medium text-[16px]'>Sign up with Google</p>
-                    </div>
+                    </div> */}
                     <div className='text-[#55555580] flex gap-4 items-center'>
                         <hr className='w-[130px] border-[1.33px] border-[#55555580] mt-1' /><span className='text-[16px] font-medium'>or</span> <hr className='w-[130px] mt-1 border-[#55555580] border-[1.33px]' />
                     </div>
                     <form onSubmit={signUp} className='w-full gap-6 flex flex-col'>
                         {modal && (
-                            <div className={`${status.type === 'error' ? 'bg-red-500' : 'bg-green-500'} text-white absolute top-[270px] z-50 right-0 p-3 rounded-md flex items-center text-center justify-between`}>
+                            <div className={`${status.type === 'error' ? 'bg-red-500' : 'bg-green-500'} text-white absolute top-[200px] z-50 right-0 p-3 rounded-md flex items-center text-center justify-between`}>
                                 <p className='text-[16px] 3xl:text-[22px] font-bold'>
                                     {status.message}
                                 </p>

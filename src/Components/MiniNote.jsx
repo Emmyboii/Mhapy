@@ -90,7 +90,7 @@ const MiniNote = () => {
                     </div>
                 </div>
             </div>
-            <div className='flex flex-col gap-6'>
+            {/* <div className='flex flex-col gap-6'>
                 <div className='flex items-center justify-between gap-[10px]'>
                     <p className='text-[24px] text-[#252525] font-[450]'>Recently deleted</p>
                     <p
@@ -180,7 +180,7 @@ const MiniNote = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }
